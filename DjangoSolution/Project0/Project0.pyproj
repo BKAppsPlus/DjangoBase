@@ -43,7 +43,7 @@
     <Folder Include="Project0\" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="..\..\env64(Django 2.x)\">
+    <Interpreter Include="..\..\..\..\..\source\repos\env64(Django 2.x)\">
       <Id>env64(Django 2.x)</Id>
       <Version>3.6</Version>
       <Description>env64(Django 2.x) (Python 3.6 (64-bit))</Description>
