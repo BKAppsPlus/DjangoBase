@@ -1,11 +1,10 @@
 from django.db import models
 
 # Create your models here.
-
 from django.contrib.auth.models import User
+from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
 
 class Profile(models.Model):
     APPADMIN = 1
@@ -36,13 +35,8 @@ class Profile(models.Model):
     def __str__(self):  # __unicode__ for Python 2
         return self.user.username
 
-    class Meta:
-        db_table = 'auth_user_TTLProfile'
-
-
 @receiver(post_save, sender=User)
 def create_or_update_accounts(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
-

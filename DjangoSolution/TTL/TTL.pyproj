@@ -1,14 +1,14 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <Name>Project0</Name>
-    <RootNamespace>Project0</RootNamespace>
+    <Name>TTL</Name>
+    <RootNamespace>TTL</RootNamespace>
     <InterpreterId>MSBuild|env64(Django 2.x)|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>7fedf8c1-b1be-4cdc-8b7d-a3f03f2ebf14</ProjectGuid>
+    <ProjectGuid>c010d9c7-6667-4336-92e2-f961d2790828</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>manage.py</StartupFile>
@@ -16,7 +16,7 @@
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <LaunchProvider>Django launcher</LaunchProvider>
-    <DjangoSettingsModule>Project0.settings</DjangoSettingsModule>
+    <DjangoSettingsModule>TTL.settings</DjangoSettingsModule>
     <WebBrowserUrl>http://localhost</WebBrowserUrl>
     <OutputPath>.</OutputPath>
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
@@ -30,44 +30,26 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="App1\admin.py" />
-    <Compile Include="App1\apps.py" />
-    <Compile Include="App1\migrations\__init__.py" />
-    <Compile Include="App1\models.py" />
-    <Compile Include="App1\tests.py" />
-    <Compile Include="App1\views.py" />
-    <Compile Include="App1\__init__.py" />
     <Compile Include="manage.py" />
-    <Compile Include="Project0\empty\admin.py" />
-    <Compile Include="Project0\empty\apps.py" />
-    <Compile Include="Project0\empty\migrations\__init__.py" />
-    <Compile Include="Project0\empty\models.py" />
-    <Compile Include="Project0\empty\tests.py" />
-    <Compile Include="Project0\empty\views.py" />
-    <Compile Include="Project0\empty\__init__.py" />
-    <Compile Include="Project0\UserProfile\admin.py" />
-    <Compile Include="Project0\UserProfile\apps.py" />
-    <Compile Include="Project0\UserProfile\migrations\__init__.py" />
-    <Compile Include="Project0\UserProfile\models.py" />
-    <Compile Include="Project0\UserProfile\tests.py" />
-    <Compile Include="Project0\UserProfile\views.py" />
-    <Compile Include="Project0\UserProfile\__init__.py" />
-    <Compile Include="Project0\__init__.py" />
-    <Compile Include="Project0\settings.py" />
-    <Compile Include="Project0\urls.py" />
-    <Compile Include="Project0\wsgi.py" />
+    <Compile Include="TTL\UserProfile\admin.py" />
+    <Compile Include="TTL\UserProfile\apps.py" />
+    <Compile Include="TTL\UserProfile\migrations\__init__.py" />
+    <Compile Include="TTL\UserProfile\models.py" />
+    <Compile Include="TTL\UserProfile\tests.py" />
+    <Compile Include="TTL\UserProfile\views.py" />
+    <Compile Include="TTL\UserProfile\__init__.py" />
+    <Compile Include="TTL\__init__.py" />
+    <Compile Include="TTL\settings.py" />
+    <Compile Include="TTL\urls.py" />
+    <Compile Include="TTL\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App1\" />
-    <Folder Include="App1\migrations\" />
-    <Folder Include="Project0\" />
-    <Folder Include="Project0\empty\" />
-    <Folder Include="Project0\empty\migrations\" />
-    <Folder Include="Project0\UserProfile\" />
-    <Folder Include="Project0\UserProfile\migrations\" />
+    <Folder Include="TTL\" />
+    <Folder Include="TTL\UserProfile\" />
+    <Folder Include="TTL\UserProfile\migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="..\..\..\..\..\source\repos\env64(Django 2.x)\">
