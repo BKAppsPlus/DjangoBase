@@ -1,0 +1,18 @@
+{% if user.is_authenticated %}
+<form id="logoutForm" action="/UserManagement/logout/" method="post" class="navbar-right">
+    {% csrf_token %}
+    <ul class="nav navbar-nav navbar-right">
+        <li><span class="navbar-brand">Hello {{ user.first_name }} ({{ user.profile.daycareId }})@ {{ user.profile.location }}!</span></li>
+        <li><a href="/admin">Administration</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+</form>
+
+{% else %}
+
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="{% url 'UserManagement:Accounts_Login' %}">Log in</a></li>
+    <li><a href="{% url 'UserManagement:Accounts_Register' %}">Register</a></li>
+</ul>
+
+{% endif %}
