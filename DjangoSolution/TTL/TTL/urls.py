@@ -17,14 +17,14 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
-from TTL.UserManagement import views
-import TTL.UserManagement.views
+from TTL.apps.user import views
+import TTL.apps.user.views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^$', TTL.UserManagement.views.home, name='TTL_Home'),
-    re_path(r'^UserManagement/', include('TTL.UserManagement.urls')),
+    re_path(r'^$', TTL.apps.user.views.home, name='TTL_Home'),
+    re_path(r'^user/', include('TTL.apps.user.urls')),
     
     
 ]

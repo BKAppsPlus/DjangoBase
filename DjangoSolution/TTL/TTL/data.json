@@ -1,0 +1,28 @@
+[
+  {
+    "model": "base.householdmembershiptype",
+    "pk": 3,
+    "fields": {
+      "name": "Fathere",
+      "isChild": false,
+      "active": true,
+      "created_by": 1,
+      "created": "2018-12-20T00:09:50Z",
+      "modified_by": 1,
+      "modified": "2018-12-20T00:09:50Z"
+    }
+  },
+  {
+    "model": "base.householdmembershiptype",
+    "pk": 4,
+    "fields": {
+      "name": "Mothere",
+      "isChild": false,
+      "active": true,
+      "created_by": 1,
+      "created": "2018-12-20T00:09:58Z",
+      "modified_by": 1,
+      "modified": "2018-12-20T00:09:58Z"
+    }
+  }
+]

@@ -24,10 +24,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'UserManagement:Accounts_Home' %}">Home</a></li>
-                    <li><a href="{% url 'UserManagement:Accounts_ViewProfile' %}">Profile</a></li>
+                    <li><a href="{% url 'user:Accounts_Home' %}">Home</a></li>
+                    <li><a href="{% url 'user:Accounts_ViewProfile' %}">Profile</a></li>
                 </ul>
-                {% include 'UserManagement/loginpartial.html' %}
+                {% include 'user/loginpartial.html' %}
             </div>
         </div>
     </div>
@@ -40,9 +40,9 @@
         </footer>
     </div>
 
-    <script src="{% static 'UserManagement/scripts/jquery-1.10.2.js' %}"></script>
-    <script src="{% static 'UserManagement/scripts/bootstrap.js' %}"></script>
-    <script src="{% static 'UserManagement/scripts/respond.js' %}"></script>
+    <script src="{% static 'user/scripts/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'user/scripts/bootstrap.js' %}"></script>
+    <script src="{% static 'user/scripts/respond.js' %}"></script>
 {% block scripts %}{% endblock %}
 
 </body>

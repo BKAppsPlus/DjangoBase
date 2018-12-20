@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 
-from TTL.UserManagement.forms import (
+from TTL.apps.user.forms import (
     RegistrationForm, 
     EditProfileForm  
     )
@@ -26,7 +26,7 @@ def home(request):
 
     return render(
         request,
-        'UserManagement/index.html',
+        'user/index.html',
         {
             'login':'kjhsk',
             'title':'Home Page',
@@ -39,7 +39,7 @@ def contact(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'UserManagement/contact.html',
+        'user/contact.html',
         {
             'title':'Contact',
             'message':'Your contact page.',
@@ -52,7 +52,7 @@ def about(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'UserManagement/about.html',
+        'user/about.html',
         {
             'title':'About This App',
             'message':'Your application description page.',
@@ -63,25 +63,25 @@ def about(request):
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, world. You're at the UserManagement index.")
+    return HttpResponse("Hello, world. You're at the user index.")
 
 def login_url(request):
-    return redirect('/UserManagement/login')
+    return redirect('/user/login')
 
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/UserManagement')
+            return redirect('/user')
     else:
         form = RegistrationForm()
         args = {'form': form}
-        return render(request,'UserManagement/register.html', args)
+        return render(request,'user/register.html', args)
 
 def login_url(request):
     
-    return redirect('/UserManagement/login')
+    return redirect('/user/login')
 
 
 def profile_edit(request):
@@ -91,7 +91,7 @@ def profile_edit(request):
        
         if form.is_valid():
             form.save()
-            return redirect('/UserManagement/profile/')
+            return redirect('/user/profile/')
     else:
         form = EditProfileForm(instance=request.user)
         args = {'form': form,
@@ -99,7 +99,7 @@ def profile_edit(request):
                 'message':'Edit Profile page.',
                 'err': err,}
 
-        return render(request,'UserManagement/profile_edit.html', args)
+        return render(request,'user/profile_edit.html', args)
 
 
 def change_password(request):
@@ -110,9 +110,9 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect('/UserManagement/profile/')
+            return redirect('/user/profile/')
         else:
-            return redirect('UserManagement/password_change.html')
+            return redirect('user/password_change.html')
     else:
         form = PasswordChangeForm(user=request.user)
         args = {'form': form,
@@ -120,7 +120,7 @@ def change_password(request):
                 'message':'Change Password page.',
                 'err': err,}
 
-        return render(request,'UserManagement/password_change.html', args)
+        return render(request,'user/password_change.html', args)
 
 
 def profile_view(request):
@@ -130,7 +130,7 @@ def profile_view(request):
         'message':'Your application description page.',
         'year':datetime.now().year
         }
-    return render(request, 'UserManagement/profile_view.html', args)
+    return render(request, 'user/profile_view.html', args)
 
 
 
@@ -141,7 +141,7 @@ def profile(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'UserManagement/profile.html',
+        'user/profile.html',
         {
             'title':'About This App',
             'message':'Your application description page.',

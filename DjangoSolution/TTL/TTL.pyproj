@@ -31,26 +31,26 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="manage.py" />
-    <Compile Include="TTL\empty\admin.py" />
-    <Compile Include="TTL\empty\apps.py" />
-    <Compile Include="TTL\empty\migrations\__init__.py" />
-    <Compile Include="TTL\empty\models.py" />
-    <Compile Include="TTL\empty\tests.py" />
-    <Compile Include="TTL\empty\views.py" />
-    <Compile Include="TTL\empty\__init__.py" />
-    <Compile Include="TTL\UserManagement\admin.py" />
-    <Compile Include="TTL\UserManagement\apps.py" />
-    <Compile Include="TTL\UserManagement\forms.py">
+    <Compile Include="TTL\apps\base\admin.py" />
+    <Compile Include="TTL\apps\base\apps.py" />
+    <Compile Include="TTL\apps\base\migrations\__init__.py" />
+    <Compile Include="TTL\apps\base\models.py" />
+    <Compile Include="TTL\apps\base\tests.py" />
+    <Compile Include="TTL\apps\base\views.py" />
+    <Compile Include="TTL\apps\base\__init__.py" />
+    <Compile Include="TTL\apps\user\admin.py" />
+    <Compile Include="TTL\apps\user\apps.py" />
+    <Compile Include="TTL\apps\user\forms.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TTL\UserManagement\migrations\__init__.py" />
-    <Compile Include="TTL\UserManagement\models.py" />
-    <Compile Include="TTL\UserManagement\urls.py">
+    <Compile Include="TTL\apps\user\migrations\__init__.py" />
+    <Compile Include="TTL\apps\user\models.py" />
+    <Compile Include="TTL\apps\user\urls.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TTL\UserManagement\tests.py" />
-    <Compile Include="TTL\UserManagement\views.py" />
-    <Compile Include="TTL\UserManagement\__init__.py" />
+    <Compile Include="TTL\apps\user\tests.py" />
+    <Compile Include="TTL\apps\user\views.py" />
+    <Compile Include="TTL\apps\user\__init__.py" />
     <Compile Include="TTL\__init__.py" />
     <Compile Include="TTL\settings.py" />
     <Compile Include="TTL\urls.py" />
@@ -58,27 +58,31 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\about.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\contact.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\index.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\index_.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\layout.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\loggedoff.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\login.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\loginpartial.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\password_change.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\profile_edit.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\profile_view.html" />
-    <Content Include="TTL\UserManagement\templates\UserManagement\register.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\about.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\contact.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\index.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\index_.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\layout.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\loggedoff.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\login.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\loginpartial.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\password_change.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\profile_edit.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\profile_view.html" />
+    <Content Include="TTL\apps\user\templates\UserManagement\register.html" />
+    <Content Include="TTL\data.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TTL\" />
-    <Folder Include="TTL\empty\" />
-    <Folder Include="TTL\empty\migrations\" />
-    <Folder Include="TTL\UserManagement\" />
-    <Folder Include="TTL\UserManagement\migrations\" />
-    <Folder Include="TTL\UserManagement\templates\" />
-    <Folder Include="TTL\UserManagement\templates\UserManagement\" />
+    <Folder Include="TTL\apps\portalc\" />
+    <Folder Include="TTL\apps\base\" />
+    <Folder Include="TTL\apps\base\migrations\" />
+    <Folder Include="TTL\apps\" />
+    <Folder Include="TTL\apps\portalp\" />
+    <Folder Include="TTL\apps\user\" />
+    <Folder Include="TTL\apps\user\migrations\" />
+    <Folder Include="TTL\apps\user\templates\" />
+    <Folder Include="TTL\apps\user\templates\UserManagement\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="..\..\..\..\..\source\repos\env64(Django 2.x)\">
