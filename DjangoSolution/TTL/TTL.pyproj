@@ -34,7 +34,12 @@
     <Compile Include="TTL\apps\base\admin.py" />
     <Compile Include="TTL\apps\base\apps.py" />
     <Compile Include="TTL\apps\base\migrations\__init__.py" />
-    <Compile Include="TTL\apps\base\models.py" />
+    <Compile Include="TTL\apps\base\models\core.py" />
+    <Compile Include="TTL\apps\base\models\family.py" />
+    <Compile Include="TTL\apps\base\models\facility.py" />
+    <Compile Include="TTL\apps\base\models\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TTL\apps\base\tests.py" />
     <Compile Include="TTL\apps\base\views.py" />
     <Compile Include="TTL\apps\base\__init__.py" />
@@ -74,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TTL\" />
+    <Folder Include="TTL\apps\base\models\" />
     <Folder Include="TTL\apps\portalc\" />
     <Folder Include="TTL\apps\base\" />
     <Folder Include="TTL\apps\base\migrations\" />

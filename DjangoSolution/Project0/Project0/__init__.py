@@ -1,3 +1,3 @@
 """
-Package for Project0.
+Package for aProject0.
 """

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Project0", "Project0\Project0.pyproj", "{7FEDF8C1-B1BE-4CDC-8B7D-A3F03F2EBF14}"
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "aProject0", "Project0\aProject0.pyproj", "{7FEDF8C1-B1BE-4CDC-8B7D-A3F03F2EBF14}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "TTL", "TTL\TTL.pyproj", "{C010D9C7-6667-4336-92E2-F961D2790828}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "MLDD", "MLDD\MLDD.pyproj", "{9C0F6E26-8ECE-402B-9A03-08B29B7E3A27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C010D9C7-6667-4336-92E2-F961D2790828}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C010D9C7-6667-4336-92E2-F961D2790828}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C010D9C7-6667-4336-92E2-F961D2790828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C0F6E26-8ECE-402B-9A03-08B29B7E3A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C0F6E26-8ECE-402B-9A03-08B29B7E3A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C0F6E26-8ECE-402B-9A03-08B29B7E3A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C0F6E26-8ECE-402B-9A03-08B29B7E3A27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

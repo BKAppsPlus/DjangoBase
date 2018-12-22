@@ -47,53 +47,10 @@ class Address(BaseModel):
     country = models.CharField(max_length = 100, blank = True)
 
 
-class Facility(BaseModel):
-    name = models.CharField(max_length=30, blank=True)
-    address = models.ForeignKey(Address ,on_delete=models.PROTECT,blank=True, null=True)
-    
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = "Facilities"
-
-
-class Teacher(BaseModel):
-    name = models.CharField(max_length=30, blank=True)
-
-    def __str__(self):
-        return self.name    
-    
-
-class HouseHoldMembershipType(BaseModel):
-    name = models.CharField(max_length=30, blank=False)
-    isChild = models.BooleanField(blank=False)
-
-    def __str__(self):
-        return self.name
-
 class Person(BaseModel):
     name = models.CharField(max_length=30, blank=True)
     userId = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
 
-    def __str__(self):
-        return self.name
-
-class Household(BaseModel):
-    name = models.CharField(max_length=30, blank=True)
-    member = models.ManyToManyField(Person, through='HouseHoldMembership')
-    address = models.ForeignKey(Address ,on_delete=models.PROTECT, blank=True, null=True)
-
-    def __str__(self):
-        return self.name
-
-
-class HouseHoldMembership(BaseModel):
-    name = models.CharField(max_length=30, blank=True)
-    person = models.ForeignKey(Person, on_delete=models.PROTECT)
-    household = models.ForeignKey(Household, on_delete=models.PROTECT)
-    type = models.ForeignKey(HouseHoldMembershipType, on_delete=models.PROTECT)
-    
     def __str__(self):
         return self.name
 
