@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - My Django Application</title>
     {% load staticfiles %}
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/site.css' %}" />
     <link rel="shortcut icon" href="{%  static '/favicon.ico' %}">
-    <script src="{% static '/static/js/modernizr-2.6.2.js' %}"></script>
 </head>
 
 <body>
@@ -40,9 +39,8 @@
         </footer>
     </div>
 
-    <script src="{% static 'user/scripts/jquery-1.10.2.js' %}"></script>
-    <script src="{% static 'user/scripts/bootstrap.js' %}"></script>
-    <script src="{% static 'user/scripts/respond.js' %}"></script>
+    <script src="{% static 'https://code.jquery.com/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js' %}"></script>
 {% block scripts %}{% endblock %}
 
 </body>
