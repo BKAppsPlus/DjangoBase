@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from django.utils import timezone
-from .core import BaseModel, Address, Person
+from .core import *
 
 
 class HouseHoldMembershipType(BaseModel):
@@ -11,6 +11,7 @@ class HouseHoldMembershipType(BaseModel):
 
     def __str__(self):
         return self.name
+
 
 class Household(BaseModel):
     name = models.CharField(max_length=30, blank=True)
@@ -23,11 +24,9 @@ class Household(BaseModel):
 
 class HouseHoldMembership(BaseModel):
     name = models.CharField(max_length=30, blank=True)
-    person = models.ForeignKey(Person, on_delete=models.PROTECT)
     household = models.ForeignKey(Household, on_delete=models.PROTECT)
+    member = models.ForeignKey(Person, on_delete=models.PROTECT,blank=True, null=True)
     type = models.ForeignKey(HouseHoldMembershipType, on_delete=models.PROTECT)
     
     def __str__(self):
         return self.name
-
-    

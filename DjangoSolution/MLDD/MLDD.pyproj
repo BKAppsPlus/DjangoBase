@@ -3,7 +3,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>MLDD</Name>
     <RootNamespace>MLDD</RootNamespace>
-    <InterpreterId>MSBuild|env64(Django 2.x)|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|Env(Django2.1.4)SB|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -37,10 +37,27 @@
     <Compile Include="MLDD\apps\base\models\core.py" />
     <Compile Include="MLDD\apps\base\models\mule.py" />
     <Compile Include="MLDD\apps\base\models\rider.py" />
+    <Compile Include="MLDD\apps\base\models\service.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MLDD\apps\base\models\__init__.py" />
     <Compile Include="MLDD\apps\base\tests.py" />
     <Compile Include="MLDD\apps\base\views.py" />
     <Compile Include="MLDD\apps\base\__init__.py" />
+    <Compile Include="MLDD\apps\schedule\admin.py" />
+    <Compile Include="MLDD\apps\schedule\apps.py" />
+    <Compile Include="MLDD\apps\schedule\migrations\__init__.py" />
+    <Compile Include="MLDD\apps\schedule\models\calendars.py" />
+    <Compile Include="MLDD\apps\schedule\models\events.py" />
+    <Compile Include="MLDD\apps\schedule\models\rules.py" />
+    <Compile Include="MLDD\apps\schedule\models\__init__.py" />
+    <Compile Include="MLDD\apps\schedule\settings.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MLDD\apps\schedule\tests.py" />
+    <Compile Include="MLDD\apps\schedule\utils.py" />
+    <Compile Include="MLDD\apps\schedule\views.py" />
+    <Compile Include="MLDD\apps\schedule\__init__.py" />
     <Compile Include="MLDD\apps\user\admin.py" />
     <Compile Include="MLDD\apps\user\apps.py" />
     <Compile Include="MLDD\apps\user\forms.py" />
@@ -56,22 +73,7 @@
     <Compile Include="MLDD\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0001_initial.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0002_auto_20181219_1710.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0002_class1_class2.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0003_class2_class1s.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0004_auto_20181219_1604.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0005_auto_20181219_1604.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0006_auto_20181219_1634.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0007_auto_20181219_1639.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0008_auto_20181219_1642.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0009_auto_20181219_1647.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0010_auto_20181219_1648.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\migrations\__pycache__\0011_auto_20181219_1651.cpython-36.pyc" />
     <Content Include="MLDD\apps\base\migrations\__pycache__\__init__.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\models\__pycache__\core.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\models\__pycache__\facility.cpython-36.pyc" />
-    <Content Include="MLDD\apps\base\models\__pycache__\family.cpython-36.pyc" />
     <Content Include="MLDD\apps\base\models\__pycache__\__init__.cpython-36.pyc" />
     <Content Include="MLDD\apps\base\__pycache__\admin.cpython-36.pyc" />
     <Content Include="MLDD\apps\base\__pycache__\apps.cpython-36.pyc" />
@@ -109,8 +111,11 @@
     <Folder Include="MLDD\apps\base\models\" />
     <Folder Include="MLDD\apps\base\models\__pycache__\" />
     <Folder Include="MLDD\apps\base\__pycache__\" />
+    <Folder Include="MLDD\apps\schedule\" />
+    <Folder Include="MLDD\apps\schedule\migrations\" />
     <Folder Include="MLDD\apps\portalc\" />
     <Folder Include="MLDD\apps\portalp\" />
+    <Folder Include="MLDD\apps\schedule\models\" />
     <Folder Include="MLDD\apps\user\" />
     <Folder Include="MLDD\apps\user\migrations\" />
     <Folder Include="MLDD\apps\user\migrations\__pycache__\" />
@@ -119,10 +124,10 @@
     <Folder Include="MLDD\apps\user\__pycache__\" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="..\..\..\..\..\source\repos\env64(Django 2.x)\">
-      <Id>env64(Django 2.x)</Id>
+    <Interpreter Include="..\..\..\..\..\source\repos\Env(Django2.1.4)SB\">
+      <Id>Env(Django2.1.4)SB</Id>
       <Version>3.6</Version>
-      <Description>env64(Django 2.x) (Python 3.6 (64-bit))</Description>
+      <Description>Env(Django2.1.4)SB (Python 3.6 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
