@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$', TTL.apps.user.views.home, name='TTL_Home'),
     re_path(r'^user/', include('TTL.apps.user.urls')),
-    
+
+    re_path(r'^base/', include('TTL.apps.base.urls')),
     
 ]

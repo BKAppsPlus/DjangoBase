@@ -79,11 +79,6 @@ def register(request):
         args = {'form': form}
         return render(request,'user/register.html', args)
 
-def login_url(request):
-    
-    return redirect('/user/login')
-
-
 def profile_edit(request):
     err=''
     if request.method == 'POST':

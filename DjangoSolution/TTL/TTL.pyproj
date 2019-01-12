@@ -33,6 +33,9 @@
     <Compile Include="manage.py" />
     <Compile Include="TTL\apps\base\admin.py" />
     <Compile Include="TTL\apps\base\apps.py" />
+    <Compile Include="TTL\apps\base\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TTL\apps\base\migrations\__init__.py" />
     <Compile Include="TTL\apps\base\models\core.py" />
     <Compile Include="TTL\apps\base\models\family.py" />
@@ -44,7 +47,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TTL\apps\base\tests.py" />
-    <Compile Include="TTL\apps\base\views.py" />
+    <Compile Include="TTL\apps\base\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TTL\apps\base\views\facility.py" />
+    <Compile Include="TTL\apps\base\views\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TTL\apps\base\__init__.py" />
     <Compile Include="TTL\apps\user\admin.py" />
     <Compile Include="TTL\apps\user\apps.py" />
@@ -66,23 +75,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
-    <Content Include="TTL\apps\user\templates\UserManagement\about.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\contact.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\index.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\index_.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\layout.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\loggedoff.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\login.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\loginpartial.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\password_change.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\profile_edit.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\profile_view.html" />
-    <Content Include="TTL\apps\user\templates\UserManagement\register.html" />
+    <Content Include="TTL\apps\base\templates\base\facility.html" />
+    <Content Include="TTL\apps\base\templates\base\layout.html" />
+    <Content Include="TTL\apps\user\templates\user\about.html" />
+    <Content Include="TTL\apps\user\templates\user\contact.html" />
+    <Content Include="TTL\apps\user\templates\user\index.html" />
+    <Content Include="TTL\apps\user\templates\user\index_.html" />
+    <Content Include="TTL\apps\user\templates\user\layout.html" />
+    <Content Include="TTL\apps\user\templates\user\loggedoff.html" />
+    <Content Include="TTL\apps\user\templates\user\login.html" />
+    <Content Include="TTL\apps\user\templates\user\loginpartial.html" />
+    <Content Include="TTL\apps\user\templates\user\password_change.html" />
+    <Content Include="TTL\apps\user\templates\user\profile_edit.html" />
+    <Content Include="TTL\apps\user\templates\user\profile_view.html" />
+    <Content Include="TTL\apps\user\templates\user\register.html" />
     <Content Include="TTL\data.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TTL\" />
     <Folder Include="TTL\apps\base\models\" />
+    <Folder Include="TTL\apps\base\templates\" />
+    <Folder Include="TTL\apps\base\templates\base\" />
+    <Folder Include="TTL\apps\base\views\" />
     <Folder Include="TTL\apps\portalc\" />
     <Folder Include="TTL\apps\base\" />
     <Folder Include="TTL\apps\base\migrations\" />
@@ -91,7 +105,7 @@
     <Folder Include="TTL\apps\user\" />
     <Folder Include="TTL\apps\user\migrations\" />
     <Folder Include="TTL\apps\user\templates\" />
-    <Folder Include="TTL\apps\user\templates\UserManagement\" />
+    <Folder Include="TTL\apps\user\templates\user\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="..\..\..\..\..\source\repos\env64(Django 2.x)\">

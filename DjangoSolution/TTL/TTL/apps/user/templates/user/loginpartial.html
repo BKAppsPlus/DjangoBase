@@ -11,8 +11,8 @@
 {% else %}
 
 <ul class="nav navbar-nav navbar-right">
-    <li><a href="{% url 'user:Accounts_Login' %}">Log in</a></li>
-    <li><a href="{% url 'user:Accounts_Register' %}">Register</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'user:Accounts_Login' %}">Log in</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'user:Accounts_Register' %}">Register</a></li>
 </ul>
 
 {% endif %}

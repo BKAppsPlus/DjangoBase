@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class UserProfileConfig(AppConfig):
-    name = 'aProject0.UserProfile'
+    name = 'Project0.UserProfile'

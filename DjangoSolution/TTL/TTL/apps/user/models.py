@@ -6,6 +6,11 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+class ProfileManager(models.Manager):
+    def get_queryset(self):
+        return super(ProfileManager, self).get_queryset().filter(phone='6196754608')
+
+
 class Profile(models.Model):
     APPADMIN = 1
     PROVIDER = 2
@@ -31,6 +36,7 @@ class Profile(models.Model):
     daycareId = models.IntegerField(default=0) # for user_type:PROVIDER 
     parent_type = models.PositiveSmallIntegerField(choices=PARENT_TYPE, null=True, blank=True) # for user_type:PROVIDER 
     
+    sandiego = ProfileManager()
 
     def __str__(self):  # __unicode__ for Python 2
         return self.user.username
