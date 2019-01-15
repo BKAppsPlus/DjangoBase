@@ -15,6 +15,16 @@ class HomeView(TemplateView):
         form = FacilityForm()
         return render(request, self.template_name, {'form': form})
 
+    def post(self, request):
+        form = FacilityForm(request.POST)
+        if form.is_valid():
+            text =  form.cleaned_data['postField']
+            form = FacilityForm()
+            return redirect('base:home')
+
+        args = {'form': form, 'text': text}
+        return render(request, self.template_name, args)
+
 def index(request):
     return HttpResponse("Hello, world. You're at the user index.")
     #return redirect('/base/facility.html')

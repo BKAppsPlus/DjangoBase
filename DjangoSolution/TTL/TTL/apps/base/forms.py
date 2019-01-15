@@ -2,4 +2,4 @@ from django import forms
 
 
 class FacilityForm(forms.Form):
-    post = forms.CharField()
+    postField = forms.CharField(required=False)
