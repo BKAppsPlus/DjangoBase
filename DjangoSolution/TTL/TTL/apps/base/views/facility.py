@@ -2,25 +2,36 @@ from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 
 # Create your views here.
-
 from  django.views.generic import TemplateView
 
-from TTL.apps.base.forms import FacilityForm
+from TTL.apps.base.forms import AddressForm
+
+from base.models import *
 
 
 class HomeView(TemplateView):
-    template_name = 'base/facility.html'
+    template_name = 'base/address.html'
     
     def get(self, request):
-        form = FacilityForm()
-        return render(request, self.template_name, {'form': form})
+        form = AddressForm()
+        addresses = Address.objects.all().order_by('-created')
+        #print(addresses)
+        
+        args = {'form': form, 'addresses': addresses}
+        return render(request, self.template_name, args)
 
     def post(self, request):
-        form = FacilityForm(request.POST)
+        form = AddressForm(request.POST)
         if form.is_valid():
-            text =  form.cleaned_data['postField']
-            form = FacilityForm()
-            return redirect('base:home')
+            addressform = form.save(commit=False)
+            addressform.modified_by = request.user
+            addressform.created_by = request.user
+            #addressform.modified = 
+            #addressform.created = request.user
+            addressform.save()
+            text =  form.cleaned_data['name']
+            form = AddressForm()
+            #return redirect('base:home')
 
         args = {'form': form, 'text': text}
         return render(request, self.template_name, args)

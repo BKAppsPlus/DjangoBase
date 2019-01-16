@@ -5,7 +5,7 @@ from django.utils import timezone
 from .core import *
 
 
-class HouseHoldMembershipType(BaseModel):
+class HouseholdMembershipType(BaseModel):
     name = models.CharField(max_length=30, blank=False)
     isChild = models.BooleanField(blank=False)
 
@@ -22,11 +22,11 @@ class Household(BaseModel):
         return self.name
 
 
-class HouseHoldMembership(BaseModel):
+class HouseholdMembership(BaseModel):
     name = models.CharField(max_length=30, blank=True)
     household = models.ForeignKey(Household, on_delete=models.PROTECT)
     member = models.ForeignKey(Person, on_delete=models.PROTECT,blank=True, null=True)
-    type = models.ForeignKey(HouseHoldMembershipType, on_delete=models.PROTECT)
+    type = models.ForeignKey(HouseholdMembershipType, on_delete=models.PROTECT)
     
     def __str__(self):
         return self.name

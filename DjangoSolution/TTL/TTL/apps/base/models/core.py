@@ -3,20 +3,6 @@ from django.contrib.auth.models import User
 import datetime
 from django.utils import timezone
 
-# Create your models here.
-#class class1(models.Model):
-#    name = models.CharField(max_length=30, blank=True)
-        
-#    class Meta:
-#        db_table = '_App1_class1'
-
-#class class2(models.Model):
-#    name = models.CharField(max_length=30, blank=True)
-#    class1s = models.ManyToManyField(class1,)
-
-#    class Meta:
-#        db_table = '_App1_class2'
-
 class BaseModel(models.Model):
     active = models.BooleanField(default=1)
     created_by = models.ForeignKey(User, on_delete=models.PROTECT, default='0', related_name='%(class)s_Creator')
@@ -45,8 +31,8 @@ class Address(BaseModel):
         (Facility, 'Facility')
     )
     category = models.IntegerField(choices = TYPES_CHOICES, default=0)
-    name = models.CharField(max_length=30, blank=True)
     type = models.ForeignKey(AddressType, on_delete=models.PROTECT)
+    name = models.CharField(max_length=30, blank=True)
     street_line1 = models.CharField(max_length = 100, blank = True)
     street_line2 = models.CharField(max_length = 100, blank = True)
     city = models.CharField(max_length = 100, blank = True)
@@ -67,3 +53,16 @@ class Person(BaseModel):
         return self.name
 
 
+# Create your models here.
+#class class1(models.Model):
+#    name = models.CharField(max_length=30, blank=True)
+        
+#    class Meta:
+#        db_table = '_App1_class1'
+
+#class class2(models.Model):
+#    name = models.CharField(max_length=30, blank=True)
+#    class1s = models.ManyToManyField(class1,)
+
+#    class Meta:
+#        db_table = '_App1_class2'
