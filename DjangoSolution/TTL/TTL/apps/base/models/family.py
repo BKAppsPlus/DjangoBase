@@ -6,7 +6,6 @@ from .core import *
 
 
 class HouseholdMembershipType(BaseModel):
-    name = models.CharField(max_length=30, blank=False)
     isChild = models.BooleanField(blank=False)
 
     def __str__(self):
@@ -14,7 +13,6 @@ class HouseholdMembershipType(BaseModel):
 
 
 class Household(BaseModel):
-    name = models.CharField(max_length=30, blank=True)
     member = models.ManyToManyField(Person, through='HouseHoldMembership')
     address = models.ForeignKey(Address ,on_delete=models.PROTECT, blank=True, null=True)
 
@@ -23,7 +21,6 @@ class Household(BaseModel):
 
 
 class HouseholdMembership(BaseModel):
-    name = models.CharField(max_length=30, blank=True)
     household = models.ForeignKey(Household, on_delete=models.PROTECT)
     member = models.ForeignKey(Person, on_delete=models.PROTECT,blank=True, null=True)
     type = models.ForeignKey(HouseholdMembershipType, on_delete=models.PROTECT)

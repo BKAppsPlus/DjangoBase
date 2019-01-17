@@ -7,7 +7,6 @@ from .core import *
 
 
 class Facility(BaseModel):
-    name = models.CharField(max_length=30, blank=True)
     address = models.ForeignKey(Address ,on_delete=models.PROTECT,blank=True, null=True)
     
     def __str__(self):
@@ -18,7 +17,6 @@ class Facility(BaseModel):
 
 
 class FacilitySpace(BaseModel):
-    name = models.CharField(max_length=100, blank=True)
     facility = models.ForeignKey(Facility, on_delete=models.PROTECT,blank=True, null=True)
     capacity = models.PositiveSmallIntegerField(default=1,blank=True, null=True)
     
@@ -27,7 +25,6 @@ class FacilitySpace(BaseModel):
 
 
 class Teacher(BaseModel):
-    name = models.CharField(max_length=30, blank=True)
     facility = models.ForeignKey(Facility, on_delete=models.PROTECT,blank=True, null=True)
 
     def __str__(self):
