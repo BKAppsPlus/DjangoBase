@@ -43,6 +43,9 @@
     <Compile Include="TTL\apps\base\models\reservation.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TTL\apps\base\models\signals.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TTL\apps\base\models\__init__.py">
       <SubType>Code</SubType>
     </Compile>

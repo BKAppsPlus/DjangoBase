@@ -26,21 +26,22 @@ class ConsumerType(BaseModel):
 
 class Consumer(BaseModel):
     type = models.ForeignKey(ConsumerType, on_delete=models.PROTECT,default=0)
+    primary_user = models.ForeignKey(User, on_delete=models.PROTECT, default='0')
 
-
-class ConsumerProfile(BaseModel):
-    consumer = models.OneToOneField(Consumer,primary_key=True,on_delete=models.PROTECT)
+#class ConsumerProfile(BaseModel):
+#    consumer = models.OneToOneField(Consumer,primary_key=True,on_delete=models.PROTECT)
     
 
-def create_ConsumerProfile(sender, instance, created, **kwargs):
-    """Create ModelB for every new ModelA."""
-    if created:
-        ConsumerProfile.objects.create(consumer=instance, name=instance.name,
-                                       created_by=instance.created_by, created=instance.created,
-                                       modified_by=instance.modified_by, modified=instance.modified)
+#def create_ConsumerProfile(sender, instance, created, **kwargs):
+#    """Create ModelB for every new ModelA."""
+#    if created:
+#        ConsumerProfile.objects.create(consumer=instance, name=instance.name,
+#                                       created_by=instance.created_by, created=instance.created,
+#                                       modified_by=instance.modified_by, modified=instance.modified)
 
-signals.post_save.connect(create_ConsumerProfile, sender=Consumer, weak=False,
-                          dispatch_uid='models.create_ConsumerProfile')
+#signals.post_save.connect(create_ConsumerProfile, sender=Consumer, weak=False,
+#                          dispatch_uid='models.creat
+#                          e_ConsumerProfile')
 
 
 class Address(BaseModel):
@@ -64,11 +65,10 @@ class Address(BaseModel):
     country = models.CharField(max_length = 100, blank = True)
 
 
+
 class Person(BaseModel):
     userId = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
     
-    def __str__(self):
-        return self.name
 
 
 

@@ -84,14 +84,10 @@ class BaseAdmin(admin.ModelAdmin):
 #admin.site.register(ChildAssignment,ChildAssignmentAdmin)
 
 admin.site.register(Person)
-#admin.site.register(AddressType)
 admin.site.register(Address)
 admin.site.register(ConsumerType)
 admin.site.register(Consumer)
-admin.site.register(ConsumerProfile)
 
-#admin.site.register(ModelA)
-#admin.site.register(ModelB)
 
 admin.site.register(Facility)
 admin.site.register(FacilitySpace)
@@ -105,5 +101,5 @@ admin.site.register(HouseholdMembership)
 
 
 
-admin.site.register(Event)
-admin.site.register(ChildAssignment)
+#admin.site.register(Event)
+#admin.site.register(ChildAssignment)

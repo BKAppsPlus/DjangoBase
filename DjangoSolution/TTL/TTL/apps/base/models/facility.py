@@ -6,14 +6,20 @@ from django.utils import timezone
 from .core import *
 
 
+
+
+
+
 class Facility(BaseModel):
-    address = models.ForeignKey(Address ,on_delete=models.PROTECT,blank=True, null=True)
+    consumer = models.OneToOneField(Consumer,primary_key=True,on_delete=models.PROTECT)
+    license_number = models.CharField(max_length=30, blank=True)
     
     def __str__(self):
         return self.name
 
     class Meta:
         verbose_name_plural = "Facilities"
+
 
 
 class FacilitySpace(BaseModel):
