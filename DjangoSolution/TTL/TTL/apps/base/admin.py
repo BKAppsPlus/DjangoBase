@@ -8,8 +8,8 @@ from .models import *
 #admin.site.register(class2)
 class BaseAdmin(admin.ModelAdmin):
     pass
-    #readonly_field = ('created','modified',)
-    basic_fields = ('created_by','modified_by','active', ) #'created','modified',
+    #readonly_field = ('created_by','modified_by',)
+    basic_fields = ('active','name','created_by','modified_by',) #'created','modified',
     list_display = ('name','created_by','created','modified_by','modified','active','id',)
     fieldsets = [
             ('Administration', {
@@ -20,17 +20,19 @@ class BaseAdmin(admin.ModelAdmin):
 
 
 class AddressAdmin(BaseAdmin):
-    list_display = ('name','consumer',  'street_line1',) + BaseAdmin.list_display
-    fieldsets = [(None, {'fields': ('name', 'consumer', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country', )})] + BaseAdmin.fieldsets
+    list_display = BaseAdmin.list_display + ('consumer',  'street_line1',) 
+    fieldsets = [(None, {'fields': ('consumer', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country', )})] + BaseAdmin.fieldsets
+
 class ConsumerTypeAdmin(BaseAdmin):
     pass
+
 class ConsumerAdmin(BaseAdmin):
-    list_display = ('name','type', 'primary_user', ) + BaseAdmin.list_display
-    fieldsets = [(None, {'fields': ('name', 'primary_user', )})] + BaseAdmin.fieldsets
+    list_display = BaseAdmin.list_display+ ('type', 'primary_user', )
+    fieldsets =BaseAdmin.fieldsets + [(None, {'fields': ('primary_user', )})] 
+
 class PersonAdmin(BaseAdmin):
-    pass
-    #list_display = ('name', 'userId', ) + BaseAdmin.list_display
-    #fieldsets = [(None, {'fields': ('name', 'userId', )})] + BaseAdmin.fieldsets
+    list_display = BaseAdmin.list_display + ('userId', )
+    fieldsets = BaseAdmin.fieldsets + [(None, {'fields': ('userId', )})]
 
 admin.site.register(Address,AddressAdmin)
 admin.site.register(ConsumerType,ConsumerTypeAdmin)
