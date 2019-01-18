@@ -3,7 +3,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>TTL</Name>
     <RootNamespace>TTL</RootNamespace>
-    <InterpreterId>MSBuild|P3.6_64|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|env64(Django 2.x)|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -111,10 +111,10 @@
     <Folder Include="TTL\apps\user\templates\user\" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="..\..\..\..\venv\P3.6_64\">
-      <Id>P3.6_64</Id>
+    <Interpreter Include="..\..\..\..\..\Users\bkashefipour\source\repos\env64(Django 2.x)\">
+      <Id>env64(Django 2.x)</Id>
       <Version>3.6</Version>
-      <Description>P3.6_64 (Python 3.6 (64-bit))</Description>
+      <Description>env64(Django 2.x) (Python 3.6 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
