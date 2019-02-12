@@ -11,7 +11,7 @@ from .core import *
 
 
 class Facility(BaseModel):
-    consumer = models.OneToOneField(Consumer,primary_key=True,on_delete=models.PROTECT)
+    client = models.OneToOneField(Client,primary_key=True,on_delete=models.PROTECT)
     license_number = models.CharField(max_length=30, blank=True)
     
     def __str__(self):

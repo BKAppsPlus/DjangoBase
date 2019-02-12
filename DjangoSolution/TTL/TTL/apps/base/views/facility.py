@@ -26,8 +26,6 @@ class HomeView(TemplateView):
             addressform = form.save(commit=False)
             addressform.modified_by = request.user
             addressform.created_by = request.user
-            #addressform.modified = 
-            #addressform.created = request.user
             addressform.save()
             text =  form.cleaned_data['name']
             form = AddressForm()

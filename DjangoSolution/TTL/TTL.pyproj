@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="TTL\apps\base\templates\base\profile.html" />
     <Content Include="TTL\apps\base\templates\base\address.html" />
     <Content Include="TTL\apps\base\templates\base\layout.html" />
     <Content Include="TTL\apps\user\templates\user\about.html" />

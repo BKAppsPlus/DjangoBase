@@ -24,6 +24,6 @@ class AddressForm(forms.ModelForm):
 
     class Meta:
         model = Address
-        fields = ('name', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country',)
+        fields = ('name', 'client', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country',)
         
 

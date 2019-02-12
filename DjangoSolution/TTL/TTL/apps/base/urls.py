@@ -15,6 +15,7 @@ urlpatterns = [
     re_path(r'^Behzad_test2_Path$', views.index, name='index'), #/user/Behzad_test2_Path
 
     url(r'^$', TTL.apps.base.views.HomeView.as_view(), name='home'),
+    url(r'^address$', TTL.apps.base.views.HomeView.as_view(), name='home'),
     #url(r'^$', TTL.apps.base.views.facility.index),
     #url(r'^facility$', TTL.apps.base.views.facility.index),
     #re_path('', include('django.contrib.auth.urls'))

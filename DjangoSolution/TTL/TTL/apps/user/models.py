@@ -19,8 +19,8 @@ class Profile(models.Model):
     PARENT = 3
     ROLE_CHOICES = (
         (APPADMIN, 'Application Admin'),
-        (PROVIDER, 'Provider'),
-        (PARENT, 'Parent'),
+        (PROVIDER, 'Service Provider'),
+        (PARENT, 'Family'),
     )
     MOTHER = 1
     FATHER = 2

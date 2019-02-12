@@ -9,34 +9,34 @@ from .models import *
 class BaseAdmin(admin.ModelAdmin):
     pass
     #readonly_field = ('created_by','modified_by',)
-    basic_fields = ('active','name','created_by','modified_by',) #'created','modified',
+    #basic_fields = ('active','name','created_by','modified_by',) #'created','modified',
     list_display = ('name','created_by','created','modified_by','modified','active','id',)
-    fieldsets = [
-            ('Administration', {
-                'classes': ('collapse',),
-                'fields': basic_fields
-            })
-        ]
+    #fieldsets = [
+    #        ('Administration', {
+    #            'classes': ('collapse',),
+    #            'fields': basic_fields
+    #        })
+    #    ]
 
 
 class AddressAdmin(BaseAdmin):
-    list_display = BaseAdmin.list_display + ('consumer',  'street_line1',) 
-    fieldsets = [(None, {'fields': ('consumer', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country', )})] + BaseAdmin.fieldsets
+    list_display = BaseAdmin.list_display + ('client',  'street_line1',) 
+    #fieldsets = [(None, {'fields': ('client', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country', )})] + BaseAdmin.fieldsets
 
-class ConsumerTypeAdmin(BaseAdmin):
+class ClientTypeAdmin(BaseAdmin):
     pass
 
-class ConsumerAdmin(BaseAdmin):
+class ClientAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display+ ('type', 'primary_user', )
-    fieldsets =BaseAdmin.fieldsets + [(None, {'fields': ('primary_user', )})] 
+    #fieldsets =BaseAdmin.fieldsets + [(None, {'fields': ('primary_user', )})] 
 
 class PersonAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display + ('userId', )
-    fieldsets = BaseAdmin.fieldsets + [(None, {'fields': ('userId', )})]
+    #fieldsets = BaseAdmin.fieldsets + [(None, {'fields': ('userId', )})]
 
 admin.site.register(Address,AddressAdmin)
-admin.site.register(ConsumerType,ConsumerTypeAdmin)
-admin.site.register(Consumer,ConsumerAdmin)
+admin.site.register(ClientType,ClientTypeAdmin)
+admin.site.register(Client,ClientAdmin)
 admin.site.register(Person,PersonAdmin)
 
 #admin.site.register(Person, PersonAdmin)

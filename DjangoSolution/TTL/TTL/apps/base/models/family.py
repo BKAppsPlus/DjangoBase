@@ -12,8 +12,8 @@ class HouseholdMembershipType(BaseModel):
 
 
 class Household(BaseModel):
-    consumer = models.OneToOneField(Consumer,primary_key=True,on_delete=models.PROTECT)
-    member = models.ManyToManyField(Person, through='HouseHoldMembership')
+    client = models.OneToOneField(Client,primary_key=True,on_delete=models.PROTECT)
+    member = models.ManyToManyField(Person, through='HouseHoldMembership',)
     
     def __str__(self):
         return self.name
