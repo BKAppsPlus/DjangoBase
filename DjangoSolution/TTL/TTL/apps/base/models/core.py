@@ -50,7 +50,11 @@ class Address(BaseModel):
     zipcode = models.CharField(max_length = 5, blank = True)
     country = models.CharField(max_length = 100, blank = True)
 
+    def get_absolute_url(self):
+        return reverse('address-list', kwargs={'pk': self.pk})
 
+    def __str__(self):
+        return self.street_line1 + self.street_line2 + self.city + self.state + self.zipcode
 
 class Person(BaseModel):
     userId = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)

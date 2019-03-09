@@ -32,6 +32,9 @@ urlpatterns = [
     re_path(r'^logout/$', auth_views.LogoutView.as_view(template_name='user/loggedoff.html'),name='Accounts_Loggedoff'),
     re_path(r'^register/$', views.register, name='Accounts_Register'),
     re_path(r'^profile/$', views.profile_view, name='Accounts_ViewProfile'),
+    re_path(r'^profile/(?P<pk>\d+)$', views.profile_view, name='Accounts_ViewProfile_with_pk'),
+
+
     re_path(r'^profile/edit/$', views.profile_edit, name='Accounts_EditProfile'),
     re_path(r'^profile/change-password/$', views.change_password, name='Accounts_ChangePassword'),
     re_path(r'^password-reset/$', auth_views.PasswordResetView.as_view(),name='Accounts_ResetPassword'),

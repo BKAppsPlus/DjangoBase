@@ -79,6 +79,23 @@ def register(request):
         args = {'form': form}
         return render(request,'user/register.html', args)
 
+
+def profile_view(request, pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+        print('qwdqwdqwdqwdqwdwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
+        print(user)
+    else:
+        user = request.user
+    args ={
+        'user': user,
+        'title':'About This App',
+        'message':'Your application description page.',
+        'year':datetime.now().year
+        }
+    return render(request, 'user/profile_view.html', args)
+
+
 def profile_edit(request):
     err=''
     if request.method == 'POST':
@@ -116,19 +133,6 @@ def change_password(request):
                 'err': err,}
 
         return render(request,'user/password_change.html', args)
-
-
-def profile_view(request):
-    args ={
-        'user': request.user,
-        'title':'About This App',
-        'message':'Your application description page.',
-        'year':datetime.now().year
-        }
-    return render(request, 'user/profile_view.html', args)
-
-
-
 
 
 """

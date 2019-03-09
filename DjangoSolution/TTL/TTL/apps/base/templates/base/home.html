@@ -1,0 +1,35 @@
+{% extends "base/layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Facility Home</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {{ form.errors }}
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <h2>All Users</h2>
+            {% for user in allUsers %}
+                <a href="{% url 'user:Accounts_ViewProfile_with_pk' pk=user.pk %}">
+                <h3>{{ user.username}} - {{ user.id}}</h3>
+                </a>
+            {% endfor %}
+            <h2>All Addresses</h2>
+            {% for address in addresses %}
+                <a href="{{address.id}}">
+                <h2>{{ address.id }} - {{ address.name }}</h2></a>
+                <p>{{ address.street_line1 }}, {{ address.street_line2 }}, {{ address.city }}, {{ address.state }}, {{ address.zipcode}} {{ address.country }}</p>
+                <p>Created By: {{ address.created_by.get_full_name }}, on {{address.created }}</p>
+            {% endfor %}
+
+        </div>
+     </div>
+    <p>Use this area to provide additional information.</p>
+</div>
+{% endblock %}

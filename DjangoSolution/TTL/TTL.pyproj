@@ -78,8 +78,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
-    <Content Include="TTL\apps\base\templates\base\profile.html" />
+    <Content Include="TTL\apps\base\templates\base\address_form.html" />
+    <Content Include="TTL\apps\base\templates\base\address_list.html" />
     <Content Include="TTL\apps\base\templates\base\address.html" />
+    <Content Include="TTL\apps\base\templates\base\profile.html" />
+    <Content Include="TTL\apps\base\templates\base\home.html" />
     <Content Include="TTL\apps\base\templates\base\layout.html" />
     <Content Include="TTL\apps\user\templates\user\about.html" />
     <Content Include="TTL\apps\user\templates\user\contact.html" />
