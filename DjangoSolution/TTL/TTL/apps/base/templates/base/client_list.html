@@ -1,0 +1,16 @@
+{% extends "base/layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <form method="post">{% csrf_token %}
+        {% for client in object_list %}
+            <a href="{{client.id}}">
+            <h2>{{ client.id }} - {{ client.name }}</h2></a>
+            <p>Type: {{ client.type }}, Primary User: {{ client.primary_user }}</p>
+            <p>Created By: {{ client.created_by.get_full_name }}, on {{client.created }}</p>
+            <p>Modified By: {{ client.modified_by.get_full_name }}, on {{client.modified }}</p>
+        {% endfor %}
+    </form>
+</div>
+{% endblock %}

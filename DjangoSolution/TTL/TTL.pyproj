@@ -78,7 +78,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="TTL\apps\base\templates\base\booknew_form.html" />
+    <Content Include="TTL\apps\base\templates\base\book_form.html" />
+    <Content Include="TTL\apps\base\templates\base\booknew_list.html" />
+    <Content Include="TTL\apps\base\templates\base\book_list.html" />
+    <Content Include="TTL\apps\base\templates\base\clienttype.html" />
+    <Content Include="TTL\apps\base\templates\base\client.html" />
+    <Content Include="TTL\apps\base\templates\base\clienttype_form.html" />
+    <Content Include="TTL\apps\base\templates\base\client_form.html" />
     <Content Include="TTL\apps\base\templates\base\address_form.html" />
+    <Content Include="TTL\apps\base\templates\base\clienttype_list.html" />
+    <Content Include="TTL\apps\base\templates\base\client_list.html" />
     <Content Include="TTL\apps\base\templates\base\address_list.html" />
     <Content Include="TTL\apps\base\templates\base\address.html" />
     <Content Include="TTL\apps\base\templates\base\profile.html" />

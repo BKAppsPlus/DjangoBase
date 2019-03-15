@@ -1,0 +1,12 @@
+{% extends "base/layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <form method="post">{% csrf_token %}
+        <h2>{{ clienttype.id }} - {{ clienttype.name }}</h2></a>
+        <p>Created By: {{ clienttype.created_by.get_full_name }}, on {{clienttype.created }}</p>
+        <p>Modified By: {{ clienttype.modified_by.get_full_name }}, on {{clienttype.modified }}</p>
+    </form>
+</div>
+{% endblock %}

@@ -124,10 +124,37 @@
     <Folder Include="MLDD\apps\user\__pycache__\" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="..\..\..\..\..\source\repos\Env(Django2.1.4)SB\">
+    <Interpreter Include="..\..\..\..\..\Users\bkashefipour\source\repos\env(Django 1.7)\">
+      <Id>env(Django 1.7)</Id>
+      <Version>3.6</Version>
+      <Description>env(Django 1.7) (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+    <Interpreter Include="..\..\..\..\..\Users\bkashefipour\source\repos\Env(Django2.1.4)SB\">
       <Id>Env(Django2.1.4)SB</Id>
       <Version>3.6</Version>
       <Description>Env(Django2.1.4)SB (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+    <Interpreter Include="..\..\..\..\..\Users\bkashefipour\source\repos\env(P2.7)(Django1.7)\">
+      <Id>env(P2.7)(Django1.7)</Id>
+      <Version>2.7</Version>
+      <Description>env(P2.7)(Django1.7) (Python 2.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+    <Interpreter Include="..\..\..\..\..\Users\bkashefipour\source\repos\env64(Django 1.11.17)\">
+      <Id>env64(Django 1.11.17)</Id>
+      <Version>3.6</Version>
+      <Description>env64(Django 1.11.17) (Python 3.6 (64-bit))</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>

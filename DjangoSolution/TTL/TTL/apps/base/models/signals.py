@@ -18,7 +18,7 @@ def create_Client(sender, instance, created, **kwargs):
                                        modified_by=instance.modified_by, modified=instance.modified)
         elif instance.type.name == 'Family':
             print('qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwd')
-            Household.objects.create(client=instance, name=instance.name, member=instance.primary_user,
+            Household.objects.create(client=instance, name=instance.name, member=instance.primary_user.id,
                                        created_by=instance.created_by, created=instance.created,
                                        modified_by=instance.modified_by, modified=instance.modified)
 

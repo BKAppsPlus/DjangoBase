@@ -27,5 +27,10 @@ urlpatterns = [
     re_path(r'^user/', include('TTL.apps.user.urls')),
 
     re_path(r'^base/', include('TTL.apps.base.urls')),
+
+
+
+
+
     
 ]

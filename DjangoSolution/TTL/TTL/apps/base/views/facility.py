@@ -10,12 +10,40 @@ from django.views.generic.edit import (FormView,CreateView,UpdateView,DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-
-
-
-from TTL.apps.base.forms import AddressForm
+from TTL.apps.base.forms import AddressForm, ClientTypeForm,ClientForm
+#from TTL.apps.base.forms import BookForm, BooknewForm
 
 from base.models import *
+
+class BaseModelMixin(object,):
+    print('zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz')
+    def form_valid(self, form, ):
+        if not form.instance.id:
+            form.instance.created_by = self.request.user
+        form.instance.modified_by = self.request.user
+        return super(BaseModelMixin, self).form_valid(form)
+
+class ClientTypeListView(ListView):
+    model = ClientType
+
+class ClientTypeCreateView(BaseModelMixin, CreateView):
+    model = ClientType
+    form_class = ClientTypeForm
+
+class ClientTypeDetailView(BaseModelMixin, UpdateView):
+    model = ClientType
+    form_class = ClientTypeForm
+
+class ClientListView(ListView):
+    model = Client
+
+class ClientCreateView(BaseModelMixin, CreateView):
+    model = Client
+    form_class = ClientForm
+    
+class ClientDetailView(BaseModelMixin, UpdateView):
+    model = Client
+    form_class = ClientForm
 
 
 class AddressesView(TemplateView):
@@ -85,3 +113,50 @@ class AddressCreateViewold(CreateView):
         form = AddressForm()
         args = {'form': form, }
         return render(request, self.template_name, args)
+#######################################
+#class ClientTypeIndexView(ListView):
+#    template_name = 'base/clienttype_list.html'
+#    contect_object_Name = 'all_ClientTypes'
+
+#    def get_queryset(self):
+#        return ClientType.objects.all()
+
+#class ClientTypeDetailView(DetailView):
+#    model = ClientType
+#    template_name = 'base/clienttype.html'
+
+#class ClientTypeCreateView(CreateView):
+#    model = Client
+#######################################    
+#class AuditableMixin(object,):
+#    def form_valid(self, form, ):
+#        if not form.instance.id:
+#            form.instance.created_by = self.request.user
+#        form.instance.modified_by = self.request.user
+#        return super(AuditableMixin, self).form_valid(form)
+
+#class HomeTemplateView(TemplateView):
+#    template_name = 'home.html'
+
+
+#class BookCreateView(AuditableMixin, CreateView):
+#    model = Book
+#    form_class = BookForm
+
+#class BookUpdateView(AuditableMixin, UpdateView):
+#    model = Book
+#    form_class = BookForm
+
+#class BookListView(ListView):
+#    model = Book
+
+#class BooknewCreateView(BaseModelMixin, CreateView):
+#    model = Booknew
+#    form_class = BooknewForm
+
+#class BooknewUpdateView(BaseModelMixin, UpdateView):
+#    model = Booknew
+#    form_class = BookForm
+
+#class BooknewListView(ListView):
+#    model = Booknew
