@@ -16,13 +16,13 @@ from TTL.apps.base.forms import AddressForm, ClientTypeForm,ClientForm
 from base.models import *
 
 class BaseModelMixin(object,):
-    print('zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz')
     def form_valid(self, form, ):
         if not form.instance.id:
             form.instance.created_by = self.request.user
         form.instance.modified_by = self.request.user
         return super(BaseModelMixin, self).form_valid(form)
-
+#ClientType Views
+#region ClientType Views
 class ClientTypeListView(ListView):
     model = ClientType
 
@@ -33,7 +33,9 @@ class ClientTypeCreateView(BaseModelMixin, CreateView):
 class ClientTypeDetailView(BaseModelMixin, UpdateView):
     model = ClientType
     form_class = ClientTypeForm
-
+#endregion
+#Client Views
+#region Client Views
 class ClientListView(ListView):
     model = Client
 
@@ -44,7 +46,7 @@ class ClientCreateView(BaseModelMixin, CreateView):
 class ClientDetailView(BaseModelMixin, UpdateView):
     model = Client
     form_class = ClientForm
-
+#endregion
 
 class AddressesView(TemplateView):
     template_name = 'base/home.html'

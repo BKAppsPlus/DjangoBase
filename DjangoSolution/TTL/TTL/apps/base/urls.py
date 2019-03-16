@@ -26,8 +26,8 @@ urlpatterns = [
     url(r'^client/(?P<pk>\d+)$', TTL.apps.base.views.ClientDetailView.as_view(), name='client-detail'),
     
     url(r'^address/$', TTL.apps.base.views.AddressIndexView.as_view(), name='address-list'),
-    url(r'^address/(?P<pk>\d+)$', TTL.apps.base.views.AddressDetailView.as_view(), name='address-detail'),
     url(r'^address/add/$', TTL.apps.base.views.AddressCreateView0.as_view(), name='address-add'),
+    url(r'^address/(?P<pk>\d+)$', TTL.apps.base.views.AddressDetailView.as_view(), name='address-detail'),
 
 
 

@@ -8,17 +8,18 @@ from .signals import *
 
 def create_Client(sender, instance, created, **kwargs):
     """Create ModelB for every new ModelA."""
-    print('qwdqwdqwdqwdqwdwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
+    print(instance.type.name)
     if created:
-        if instance.type.name == 'Business':
-            print('qwdqwdqwdqwdqwd')
+        print('created')
+        if instance.type.name == 'Service Provider':
+            print('Creating Business Client')
             print(instance.type.name)
             Facility.objects.create(client=instance, name=instance.name,
                                        created_by=instance.created_by, created=instance.created,
                                        modified_by=instance.modified_by, modified=instance.modified)
         elif instance.type.name == 'Family':
-            print('qwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwdqwd')
-            Household.objects.create(client=instance, name=instance.name, member=instance.primary_user.id,
+            print('Creating Family Client')
+            Household.objects.create(client=instance, name=instance.name, 
                                        created_by=instance.created_by, created=instance.created,
                                        modified_by=instance.modified_by, modified=instance.modified)
 

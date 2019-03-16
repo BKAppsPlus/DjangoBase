@@ -7,7 +7,10 @@ from .core import *
 
 
 class Facility(BaseModel):
-    client = models.OneToOneField(Client,primary_key=True,on_delete=models.PROTECT)
+    def limit_client_choices():
+        return {'type__name': 'Service Provider'}
+
+    client = models.OneToOneField(Client,primary_key=True,on_delete=models.PROTECT, limit_choices_to=limit_client_choices)
     license_number = models.CharField(max_length=30, blank=True)
     
     def __str__(self):
@@ -19,7 +22,7 @@ class Facility(BaseModel):
 
 
 class FacilitySpace(BaseModel):
-    facility = models.ForeignKey(Facility, on_delete=models.PROTECT,blank=True, null=True)
+    facility = models.ForeignKey(Facility, on_delete=models.SET_NULL,blank=True, null=True)
     capacity = models.PositiveSmallIntegerField(default=1,blank=True, null=True)
     
     def __str__(self):
@@ -27,7 +30,7 @@ class FacilitySpace(BaseModel):
 
 
 class Teacher(BaseModel):
-    facility = models.ForeignKey(Facility, on_delete=models.PROTECT,blank=True, null=True)
+    facility = models.ForeignKey(Facility, on_delete=models.SET_NULL,blank=True, null=True)
 
     def __str__(self):
         return self.name    

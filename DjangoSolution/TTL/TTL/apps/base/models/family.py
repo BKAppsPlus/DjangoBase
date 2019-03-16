@@ -5,21 +5,22 @@ from django.utils import timezone
 from .core import *
 
 
-class HouseholdMembershipType(BaseModel):
-    isChild = models.BooleanField(blank=False)
-
-
-
 
 class Household(BaseModel):
-    client = models.OneToOneField(Client,primary_key=True,on_delete=models.PROTECT)
+    def limit_client_choices():
+        return {'type__name': 'Family'}
+
+    client = models.OneToOneField(Client,primary_key=True,on_delete=models.PROTECT,limit_choices_to=limit_client_choices)
     member = models.ManyToManyField(Person, through='HouseHoldMembership',)
     
     def __str__(self):
         return self.name
 
 
+
+
 class HouseholdMembership(BaseModel):
     household = models.ForeignKey(Household, on_delete=models.PROTECT)
     member = models.ForeignKey(Person, on_delete=models.PROTECT,blank=True, null=True)
-    type = models.ForeignKey(HouseholdMembershipType, on_delete=models.PROTECT)
+    isChild = models.BooleanField(blank=False, default=False)
+    

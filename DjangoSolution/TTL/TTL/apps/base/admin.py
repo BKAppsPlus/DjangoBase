@@ -7,10 +7,9 @@ from .models import *
 #admin.site.register(class1)
 #admin.site.register(class2)
 class BaseAdmin(admin.ModelAdmin):
-    pass
-    #readonly_field = ('created_by','modified_by',)
+    #readonly_fields = ('created_by','modified_by',)
     #basic_fields = ('active','name','created_by','modified_by',) #'created','modified',
-    list_display = ('name','created_by','created','modified_by','modified','active','id',)
+    list_display = ('name','created_by','created','modified_by','modified','active', 'id',)
     #fieldsets = [
     #        ('Administration', {
     #            'classes': ('collapse',),
@@ -22,13 +21,58 @@ class BaseAdmin(admin.ModelAdmin):
 class AddressAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display + ('client',  'street_line1',) 
     #fieldsets = [(None, {'fields': ('client', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country', )})] + BaseAdmin.fieldsets
+    
+
+class AddressInline(admin.StackedInline):
+    model = Address 
+    extra = 0
+    
 
 class ClientTypeAdmin(BaseAdmin):
     pass
 
+class FacilityInline(admin.TabularInline):
+    model = Facility
+    
+class HouseholdInline(admin.TabularInline):
+    model = Household 
+    
+
 class ClientAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display+ ('type', 'primary_user', )
     #fieldsets =BaseAdmin.fieldsets + [(None, {'fields': ('primary_user', )})] 
+    readonly_fields = ['type']
+    
+    inlines = [FacilityInline,HouseholdInline,AddressInline] #[]
+    
+    def get_inline_instances(self, request, obj=None):
+        if not obj:
+            return []
+
+        unfiltered = super(ClientAdmin, self).get_inline_instances(request, obj)
+        #filter out the Inlines you don't want
+        print(obj.name)
+        if (obj.type.name == 'Family'):
+            return [x for x in unfiltered if isinstance(x,(HouseholdInline,AddressInline))]
+        if ( obj.type.name == 'Service Provider'):
+            return [x for x in unfiltered if isinstance(x,(FacilityInline,AddressInline))]
+        else:
+            return [x for x in unfiltered if isinstance(x,AddressInline)]
+
+
+
+#class ClientInline(admin.TabularInline):
+#    model = Client
+
+#class HouseholdAdmin(BaseAdmin):
+#    list_display = ('name', )
+
+
+admin.site.register(Household)
+#admin.site.register(Household,HouseholdAdmin)
+
+admin.site.register(Facility)
+    
 
 class PersonAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display + ('userId', )
@@ -38,6 +82,10 @@ admin.site.register(Address,AddressAdmin)
 admin.site.register(ClientType,ClientTypeAdmin)
 admin.site.register(Client,ClientAdmin)
 admin.site.register(Person,PersonAdmin)
+
+
+
+
 
 #admin.site.register(Person, PersonAdmin)
 #admin.site.register(AddressType,AddressTypeAdmin)
@@ -49,9 +97,15 @@ admin.site.register(Person,PersonAdmin)
 #    extra = 1
 
 #class FacilityAdmin(BaseAdmin):
-#    list_display =  ('name',) + BaseAdmin.list_display
+#    tuple(list(BaseAdmin.list_display).remove('id'))
+#    list_display =  BaseAdmin.list_display + ('name',) 
 #    fieldsets = [(None, {'fields': ('name', 'address',)})] + BaseAdmin.fieldsets 
 #    inlines = [TeacherInline]
+
+#
+
+#admin.site.register(Facility,FacilityAdmin)
+
 
 #class FacilitySpaceAdmin(BaseAdmin):
 #    list_display =  ('name',) + BaseAdmin.list_display
@@ -61,7 +115,6 @@ admin.site.register(Person,PersonAdmin)
 #    list_display =  ('name',) + BaseAdmin.list_display
 #    fieldsets = [(None, {'fields': ('name','facility' )})] + BaseAdmin.fieldsets 
 
-#admin.site.register(Facility,FacilityAdmin)
 #admin.site.register(FacilitySpace, FacilitySpaceAdmin)
 #admin.site.register(Teacher,TeacherAdmin)
 
@@ -70,17 +123,12 @@ admin.site.register(Person,PersonAdmin)
 #    list_display =  ('name',) + BaseAdmin.list_display
 #    fieldsets = [(None, {'fields': ('name', 'isChild',)})] + BaseAdmin.fieldsets 
 
-#class HouseholdAdmin(BaseAdmin):
-#    list_display =  ('name',) + BaseAdmin.list_display
-#    fieldsets = [(None, {'fields': ('name', 'address', )})] + BaseAdmin.fieldsets 
 
 #class HouseholdMembershipAdmin(BaseAdmin):
 #    list_display =  ('name',) + BaseAdmin.list_display
 #    fieldsets = [(None, {'fields': ('name','household''member', 'type', )})] + BaseAdmin.fieldsets 
 
 
-#admin.site.register(HouseholdMembershipType,HouseholdMembershipTypeAdmin)
-#admin.site.register(Household,HouseholdAdmin)
 #admin.site.register(HouseholdMembership,HouseholdMembershipAdmin)
 
 
@@ -98,17 +146,22 @@ admin.site.register(Person,PersonAdmin)
 #admin.site.register(ChildAssignment,ChildAssignmentAdmin)
 
 
-admin.site.register(Facility)
+
 admin.site.register(FacilitySpace)
 admin.site.register(Teacher)
 
 
 
-admin.site.register(HouseholdMembershipType)
-admin.site.register(Household)
+#admin.site.register(HouseholdMembershipType)
+
 admin.site.register(HouseholdMembership)
 
 
 
 #admin.site.register(Event)
 #admin.site.register(ChildAssignment)
+
+
+
+
+        

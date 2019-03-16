@@ -21,7 +21,7 @@ class ClientForm(ModelForm):
         model = Client
         fields = ['name','type','primary_user',]
 
-class AddressForm(forms.ModelForm):
+class AddressForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(AddressForm, self).__init__(*args, **kwargs)

@@ -9,22 +9,6 @@ from django.utils import timezone
 from django.db.models import signals
 
 
-#class Auditable(models.Model):
-#    created_on = models.DateTimeField(auto_now_add = True)
-#    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='created_by',on_delete=models.PROTECT)
-
-#    modified_on = models.DateTimeField(auto_now = True)
-#    modified_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='modified_by',on_delete=models.PROTECT)
-
-#    class Meta:
-#        abstract = True
-
-#class Book(Auditable):
-#    name = models.CharField(max_length=128)
-#    author = models.CharField(max_length=128)
-
-#    def get_absolute_url(self):
-#        return reverse("base:book_list")
 
 
 class BaseModel(models.Model, object,):
@@ -55,6 +39,9 @@ class ClientType(BaseModel):
 
     def get_absolute_url(self):
         return reverse('base:clienttype_list')
+
+    def __str__(self):
+        return self.name
 
 
 class Client(BaseModel):
@@ -97,3 +84,19 @@ class Person(BaseModel):
 
 
 
+#class Auditable(models.Model):
+#    created_on = models.DateTimeField(auto_now_add = True)
+#    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='created_by',on_delete=models.PROTECT)
+
+#    modified_on = models.DateTimeField(auto_now = True)
+#    modified_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='modified_by',on_delete=models.PROTECT)
+
+#    class Meta:
+#        abstract = True
+
+#class Book(Auditable):
+#    name = models.CharField(max_length=128)
+#    author = models.CharField(max_length=128)
+
+#    def get_absolute_url(self):
+#        return reverse("base:book_list")
