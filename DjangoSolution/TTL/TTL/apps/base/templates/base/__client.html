@@ -7,6 +7,7 @@
         <h2>{{ client.id }} - {{ client.name }}</h2></a>
         <p>Type: {{ client.type }}, Primary User: {{ client.primary_user }}</p>
         <p>Created By: {{ client.created_by.get_full_name }}, on {{client.created }}</p>
+        <p>Modified By: {{ client.modified_by.get_full_name }}, on {{client.modified }}</p>
     </form>
 </div>
 {% endblock %}

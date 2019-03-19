@@ -7,8 +7,10 @@
         {% for address in object_list %}
             <a href="{{address.id}}">
             <h2>{{ address.id }} - {{ address.name }}</h2></a>
-            <p>{{ address.street_line1 }}, {{ address.street_line2 }}, {{ address.city }}, {{ address.state }}, {{ address.zipcode}} {{ address.country }}</p>
+            <p>{{ address.street_line1 }}, {{ address.street_line2 }}, {{ address.city }}, </p>
+            <p>{{ address.state }}, {{ address.zipcode}} {{ address.country }}</p>
             <p>Created By: {{ address.created_by.get_full_name }}, on {{address.created }}</p>
+            <p>Modified By: {{ address.modified_by.get_full_name }}, on {{address.modified }}</p>
         {% endfor %}
     </form>
 </div>

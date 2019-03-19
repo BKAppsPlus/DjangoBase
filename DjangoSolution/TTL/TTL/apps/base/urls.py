@@ -10,12 +10,12 @@ from . import views
 app_name = 'base'
 
 urlpatterns = [
-    re_path(r'^Behzad_test0_Path', views.index, name='index'), #/user/Behzad_test0_PathABCDEFGHI
-    re_path(r'^Behzad_test1_Path/$', views.index, name='index'), #/user/Behzad_test1_Path/
-    re_path(r'^Behzad_test2_Path$', views.index, name='index'), #/user/Behzad_test2_Path
+    #re_path(r'^Behzad_test0_Path', views.index, name='index'), #/user/Behzad_test0_PathABCDEFGHI
+    #re_path(r'^Behzad_test1_Path/$', views.index, name='index'), #/user/Behzad_test1_Path/
+    #re_path(r'^Behzad_test2_Path$', views.index, name='index'), #/user/Behzad_test2_Path
 
-    url(r'^$', TTL.apps.base.views.AddressesView.as_view(), name='home'),
-    url(r'^addresses/$', TTL.apps.base.views.AddressesView.as_view(), name='addresses'),
+    url(r'^$', TTL.apps.base.views.HomeView.as_view(), name='home'),
+    #url(r'^addresses/$', TTL.apps.base.views.AddressesView.as_view(), name='addresses'),
 
     url(r'^clienttype/$', TTL.apps.base.views.ClientTypeListView.as_view(), name='clienttype_list'),
     url(r'^clienttype/add/$', TTL.apps.base.views.ClientTypeCreateView.as_view(), name='clienttype-add'),
@@ -25,11 +25,11 @@ urlpatterns = [
     url(r'^client/add/$', TTL.apps.base.views.ClientCreateView.as_view(), name='client-add'),
     url(r'^client/(?P<pk>\d+)$', TTL.apps.base.views.ClientDetailView.as_view(), name='client-detail'),
     
-    url(r'^address/$', TTL.apps.base.views.AddressIndexView.as_view(), name='address-list'),
-    url(r'^address/add/$', TTL.apps.base.views.AddressCreateView0.as_view(), name='address-add'),
+    url(r'^address/$', TTL.apps.base.views.AddressListView.as_view(), name='address-list'),
+    url(r'^address/add/$', TTL.apps.base.views.AddressCreateView.as_view(), name='address-add'),
     url(r'^address/(?P<pk>\d+)$', TTL.apps.base.views.AddressDetailView.as_view(), name='address-detail'),
 
-
+    url(r'^cli-(?P<pk>\d+)$', TTL.apps.base.views.CurrentClient.as_view(), name='currcli'),
 
 
     #url(r'^address/$', TTL.apps.base.views.AddressesView.as_view(), name='address-add'),

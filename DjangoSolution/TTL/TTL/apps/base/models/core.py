@@ -49,7 +49,7 @@ class Client(BaseModel):
     primary_user = models.ForeignKey(User, on_delete=models.PROTECT, default='0')
 
     def get_absolute_url(self):
-        return reverse('base:client-list') #, kwargs={'pk': self.pk})
+        return reverse('base:client-list') 
 
 
 
@@ -74,7 +74,7 @@ class Address(BaseModel):
     country = models.CharField(max_length = 100, blank = True)
 
     def get_absolute_url(self):
-        return reverse('address-detail', kwargs={'pk': self.pk})
+        return reverse('base:address-detail', kwargs={'pk': self.pk})
 
     
 
