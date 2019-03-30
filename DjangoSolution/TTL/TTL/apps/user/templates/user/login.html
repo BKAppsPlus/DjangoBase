@@ -6,7 +6,11 @@
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
+            {% if next %}
+            <form action="/user/login/?next={{next}}" method="post" >
+            {%else%}
             <form action="." method="post" class="form-horizontal">
+            {% endif %}
                 {% csrf_token %}
                 
                 <h4>Use a local account to log in.</h4>
@@ -14,7 +18,7 @@
                 <hr />
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="hidden" name="next" value="/" />
+                        <input  name="next" value="{{next}}" />
                         <input type="submit" value="Log in" class="btn btn-default" />
                     </div>
                 </div>

@@ -65,8 +65,9 @@ def about(request):
 def index(request):
     return HttpResponse("Hello, world. You're at the user index.")
 
-def login_url(request):
-    return redirect('/user/login')
+
+
+
 
 def register(request):
     if request.method == 'POST':

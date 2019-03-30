@@ -3,6 +3,9 @@ from django.urls import reverse_lazy
 from django.http import HttpRequest, HttpResponse
 
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 
 # Create your views here.
 from django.views.generic import TemplateView
@@ -22,6 +25,8 @@ class BaseModelMixin(object,):
             print("asfasfasfasfasf")
         form.instance.modified_by = self.request.user
         return super(BaseModelMixin, self).form_valid(form)
+    
+   
 
 def index(request):
     # TEST
@@ -32,13 +37,15 @@ def index(request):
 class ClientTypeListView(ListView):
     model = ClientType
 
-class ClientTypeCreateView(BaseModelMixin, CreateView):
+class ClientTypeCreateView(LoginRequiredMixin, BaseModelMixin, CreateView):
     model = ClientType
     form_class = ClientTypeForm
 
 class ClientTypeDetailView(BaseModelMixin, UpdateView):
     model = ClientType
     form_class = ClientTypeForm
+
+
 #endregion
 #Client Views
 #region Client Views
@@ -67,28 +74,6 @@ class AddressCreateView(BaseModelMixin, CreateView):
 class AddressDetailView(BaseModelMixin, UpdateView):
     model = Address
     form_class = AddressForm
-
-
-#class AddressCreateViewhuwuygwueyfg(CreateView):
-#    model=Address
-#    fields = [ 'name', 'client', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country',]
-
-#    def form_valid(self, form):
-#        print('asfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdf')
-#        print('asfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdf')
-#        print('asfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdf')
-#        print(self.client)
-#        return super(AddressCreateView0, self).form_valid(form)
-
-
-#class AddressCreateViewold(CreateView):
-  
-#    template_name = 'base/address_form.html'
-#    #fields = ['id', 'name', 'client', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country',]
-#    def get(self, request):
-#        form = AddressForm()
-#        args = {'form': form, }
-#        return render(request, self.template_name, args)
 
 
 #endregion
@@ -134,3 +119,25 @@ class HomeView(TemplateView):
         args = {'form': form, 'text': text}
         return render(request, self.template_name, args)
 
+#Obsolete
+#region Obsolete
+
+#class AddressCreateViewhuwuygwueyfg(CreateView):
+#    model=Address
+#    fields = [ 'name', 'client', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country',]
+
+#    def form_valid(self, form):
+#        print('asfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdfasfasdfasdfasdf')
+#        print(self.client)
+#        return super(AddressCreateView0, self).form_valid(form)
+
+
+#class AddressCreateViewold(CreateView):
+  
+#    template_name = 'base/address_form.html'
+#    #fields = ['id', 'name', 'client', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country',]
+#    def get(self, request):
+#        form = AddressForm()
+#        args = {'form': form, }
+#        return render(request, self.template_name, args)
+#endregion
