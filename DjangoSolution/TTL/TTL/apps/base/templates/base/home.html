@@ -1,4 +1,4 @@
-{% extends "base/layout.html" %}
+{% extends "web/layout.html" %}
 
 {% block content %}
 
@@ -16,7 +16,7 @@
         <div class="col-md-4">
             <h2>All Users</h2>
             {% for user in allUsers %}
-                <a href="{% url 'user:Accounts_ViewProfile_with_pk' pk=user.pk %}">
+                <a href="{% url 'user:Accounts_ViewProfile' pk=user.pk %}">
                 <h3>{{ user.username}} - {{ user.id}}</h3>
                 </a>
             {% endfor %}

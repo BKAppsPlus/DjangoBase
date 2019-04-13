@@ -74,4 +74,4 @@ class ChangePasswordForm(UserChangeForm):
             'password',
             )
         #exclude = ('user_permissions',)
-    
+     

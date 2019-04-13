@@ -82,21 +82,3 @@ class Person(BaseModel):
     userId = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
     
 
-
-
-#class Auditable(models.Model):
-#    created_on = models.DateTimeField(auto_now_add = True)
-#    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='created_by',on_delete=models.PROTECT)
-
-#    modified_on = models.DateTimeField(auto_now = True)
-#    modified_by = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='modified_by',on_delete=models.PROTECT)
-
-#    class Meta:
-#        abstract = True
-
-#class Book(Auditable):
-#    name = models.CharField(max_length=128)
-#    author = models.CharField(max_length=128)
-
-#    def get_absolute_url(self):
-#        return reverse("base:book_list")

@@ -12,7 +12,7 @@ class ProfileManager(models.Manager):
     def get_queryset(self):
         return super(ProfileManager, self).get_queryset().filter(phone='6196754608')
 
-
+     
 class Profile(models.Model):
     APPADMIN = 1
     PROVIDER = 2

@@ -146,6 +146,6 @@ def profile(request):
             'title':'About This App',
             'message':'Your application description page.',
             'year':datetime.now().year,
-        }
+        } 
     )
 """

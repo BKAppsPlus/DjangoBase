@@ -1,0 +1,76 @@
+{% extends "web/layout.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Facility Home</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                {{ form.errors }}
+                <button type="submit">Submit</button>
+            </form>
+            <h2>All Facilities</h2>
+            {% for f in allFacilities %}
+                <a href="">
+                <h3>{{ f.name }}</h3>
+                </a>
+            {% endfor %}
+            <h2>All Facility Spaces</h2>
+            {% for fc in allFacilitySpaces %}
+                <a href="">
+                <h3>{{ fc.name }} </h3>
+                </a>
+            {% endfor %}
+            <h2>All Teachers</h2>
+            {% for t in allTeachers %}
+                <a href="">
+                <h3>{{ t.name }}</h3>
+                </a>
+            {% endfor %}
+            <h2>All Household</h2>
+            {% for hh in allHousehold %}
+                <a href="">
+                <h3>{{ hh.name }}</h3>
+                </a>
+            {% endfor %}
+            <h2>All Household Membership</h2>
+            {% for hhm in allHouseholdMemberships %}
+                <a href="">
+                <h3>{{ hhm.name }}</h3>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <h2>All Users</h2>
+            {% for u in allUsers %}
+                <a href="{% url 'accounts:Accounts_ViewProfile' pk=u.pk %}">
+                <h3>{{ u.username}} ({{ u.id}})</h3>
+                </a>
+            {% endfor %}
+            <h2>All ClientTypes</h2>
+            {% for ct in allClientTypes %}
+                <a href="{% url 'base:clienttype-detail' pk=ct.pk %}">
+                <h3>{{ ct.name }} ({{ ct.id }})</h3>
+                </a>
+            {% endfor %}
+            <h2>All Clients</h2>
+            {% for c in allClients %}
+                <a href="{% url 'base:client-detail' pk=c.pk %}">
+                <h3>{{ c.name }} ({{ c.id }})</h3>
+                </a>
+            {% endfor %}
+            <h2>All Addresses</h2>
+            {% for a in allAddresses %}
+                <a href="{% url 'base:address-detail' pk=a.pk %}">
+                <h3>{{ a.name }} ({{ a.id }})</h3>
+                </a>
+            {% endfor %}
+           
+        </div>
+     </div>
+    <p>Use this area to provide additional information.</p>
+</div>
+{% endblock %}

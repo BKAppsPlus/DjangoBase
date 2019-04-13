@@ -17,20 +17,20 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
-from TTL.apps.user import views
-import TTL.apps.user.views
+from TTL.apps.accounts import views
+from TTL.apps.web import views
+import TTL.apps.accounts.views
+
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^$', TTL.apps.user.views.home, name='TTL_Home'),
-    re_path(r'^user/', include('TTL.apps.user.urls')),
+    #re_path(r'^$', TTL.apps.accounts.views.home, name='TTL_Home'),
+    re_path(r'^$', include('TTL.apps.web.urls')),
+    re_path(r'^accounts/', include('TTL.apps.accounts.urls')),
 
     re_path(r'^base/', include('TTL.apps.base.urls')),
-
-
-
-
 
     
 ]

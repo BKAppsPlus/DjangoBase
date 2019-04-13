@@ -31,6 +31,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="manage.py" />
+    <Compile Include="TTL\apps\accounts\admin.py" />
+    <Compile Include="TTL\apps\accounts\apps.py" />
+    <Compile Include="TTL\apps\accounts\migrations\__init__.py" />
+    <Compile Include="TTL\apps\accounts\models.py" />
+    <Compile Include="TTL\apps\accounts\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TTL\apps\accounts\tests.py" />
+    <Compile Include="TTL\apps\accounts\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TTL\apps\accounts\views.py" />
+    <Compile Include="TTL\apps\accounts\__init__.py" />
     <Compile Include="TTL\apps\base\admin.py" />
     <Compile Include="TTL\apps\base\apps.py" />
     <Compile Include="TTL\apps\base\forms.py">
@@ -58,19 +71,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="TTL\apps\base\__init__.py" />
-    <Compile Include="TTL\apps\user\admin.py" />
-    <Compile Include="TTL\apps\user\apps.py" />
-    <Compile Include="TTL\apps\user\forms.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\user\migrations\__init__.py" />
-    <Compile Include="TTL\apps\user\models.py" />
-    <Compile Include="TTL\apps\user\urls.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\user\tests.py" />
-    <Compile Include="TTL\apps\user\views.py" />
-    <Compile Include="TTL\apps\user\__init__.py" />
+    <Compile Include="TTL\apps\web\admin.py" />
+    <Compile Include="TTL\apps\web\apps.py" />
+    <Compile Include="TTL\apps\web\migrations\__init__.py" />
+    <Compile Include="TTL\apps\web\models.py" />
+    <Compile Include="TTL\apps\web\tests.py" />
+    <Compile Include="TTL\apps\web\urls.py" />
+    <Compile Include="TTL\apps\web\views.py" />
+    <Compile Include="TTL\apps\web\__init__.py" />
     <Compile Include="TTL\__init__.py" />
     <Compile Include="TTL\settings.py" />
     <Compile Include="TTL\urls.py" />
@@ -78,11 +86,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="TTL\apps\base\templates\base\clienttype_detail.html" />
+    <Content Include="TTL\apps\base\templates\base\client_detail.html" />
+    <Content Include="TTL\apps\base\templates\base\allstuff.html" />
+    <Content Include="TTL\apps\web\templates\web\about.html" />
+    <Content Include="TTL\apps\web\templates\web\contact.html" />
+    <Content Include="TTL\apps\web\templates\web\index.html" />
+    <Content Include="TTL\apps\web\templates\web\index_.html" />
+    <Content Include="TTL\apps\web\templates\web\loggedoff.html" />
+    <Content Include="TTL\apps\web\templates\web\layout.html" />
+    <Content Include="TTL\apps\accounts\templates\accounts\loggedoff.html" />
+    <Content Include="TTL\apps\accounts\templates\accounts\login.html" />
+    <Content Include="TTL\apps\accounts\templates\accounts\password_change.html" />
+    <Content Include="TTL\apps\accounts\templates\accounts\profile_edit.html" />
+    <Content Include="TTL\apps\accounts\templates\accounts\profile_view.html" />
+    <Content Include="TTL\apps\accounts\templates\accounts\register.html" />
     <Content Include="TTL\apps\base\templates\base\booknew_form.html" />
     <Content Include="TTL\apps\base\templates\base\book_form.html" />
     <Content Include="TTL\apps\base\templates\base\booknew_list.html" />
     <Content Include="TTL\apps\base\templates\base\book_list.html" />
-    <Content Include="TTL\apps\base\templates\base\curr.html" />
+    <Content Include="TTL\apps\base\templates\base\mystuff.html" />
     <Content Include="TTL\apps\base\templates\base\__clienttype.html" />
     <Content Include="TTL\apps\base\templates\base\__client.html" />
     <Content Include="TTL\apps\base\templates\base\clienttype_form.html" />
@@ -95,35 +118,27 @@
     <Content Include="TTL\apps\base\templates\base\profile.html" />
     <Content Include="TTL\apps\base\templates\base\home.html" />
     <Content Include="TTL\apps\base\templates\base\layout.html" />
-    <Content Include="TTL\apps\user\templates\user\about.html" />
-    <Content Include="TTL\apps\user\templates\user\contact.html" />
-    <Content Include="TTL\apps\user\templates\user\index.html" />
-    <Content Include="TTL\apps\user\templates\user\index_.html" />
-    <Content Include="TTL\apps\user\templates\user\layout.html" />
-    <Content Include="TTL\apps\user\templates\user\loggedoff.html" />
-    <Content Include="TTL\apps\user\templates\user\login.html" />
-    <Content Include="TTL\apps\user\templates\user\loginpartial.html" />
-    <Content Include="TTL\apps\user\templates\user\password_change.html" />
-    <Content Include="TTL\apps\user\templates\user\profile_edit.html" />
-    <Content Include="TTL\apps\user\templates\user\profile_view.html" />
-    <Content Include="TTL\apps\user\templates\user\register.html" />
     <Content Include="TTL\data.json" />
+    <Content Include="TTL\apps\web\templates\web\loginpartial.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TTL\" />
+    <Folder Include="TTL\apps\accounts\" />
+    <Folder Include="TTL\apps\accounts\migrations\" />
+    <Folder Include="TTL\apps\accounts\templates\" />
+    <Folder Include="TTL\apps\accounts\templates\accounts\" />
     <Folder Include="TTL\apps\base\models\" />
     <Folder Include="TTL\apps\base\templates\" />
     <Folder Include="TTL\apps\base\templates\base\" />
     <Folder Include="TTL\apps\base\views\" />
-    <Folder Include="TTL\apps\portalc\" />
     <Folder Include="TTL\apps\base\" />
     <Folder Include="TTL\apps\base\migrations\" />
     <Folder Include="TTL\apps\" />
-    <Folder Include="TTL\apps\portalp\" />
-    <Folder Include="TTL\apps\user\" />
-    <Folder Include="TTL\apps\user\migrations\" />
-    <Folder Include="TTL\apps\user\templates\" />
-    <Folder Include="TTL\apps\user\templates\user\" />
+    <Folder Include="TTL\apps\web\" />
+    <Folder Include="TTL\apps\web\migrations\" />
+    <Folder Include="TTL\apps\web\templates\" />
+    <Folder Include="TTL\apps\web\templates\web\" />
+    <Folder Include="TTL\templates\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="..\..\..\..\..\Users\bkashefipour\source\repos\env64(Django 2.x)\">

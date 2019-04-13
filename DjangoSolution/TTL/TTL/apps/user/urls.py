@@ -42,3 +42,4 @@ urlpatterns = [
     #re_path('', include('django.contrib.auth.urls'))
 ]
 
+
