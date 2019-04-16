@@ -27,10 +27,10 @@ import TTL.apps.accounts.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     #re_path(r'^$', TTL.apps.accounts.views.home, name='TTL_Home'),
-    re_path(r'^$', include('TTL.apps.web.urls')),
     re_path(r'^accounts/', include('TTL.apps.accounts.urls')),
 
     re_path(r'^base/', include('TTL.apps.base.urls')),
 
+    re_path(r'', include('TTL.apps.web.urls')),
     
 ]

@@ -91,15 +91,18 @@ class MyStuff(TemplateView):
     def get(self, request):
         form = ClientForm()
         allUsers = User.objects.filter(username=request.user.username)
-        allClients = Client.objects.filter(primary_user=request.user)
         allClientTypes = ClientType.objects.all().order_by('id')
-        allAddresses = Address.objects.all().order_by('id')
+        
+        allClients = Client.objects.filter(primary_user=request.user)
+        
+        allAddresses = Address.objects.filter(client__in=allClients)
         allFacilities= Facility.objects.all().order_by('name')
         allFacilitySpaces= FacilitySpace.objects.all().order_by('name')
         allTeachers= Teacher.objects.all().order_by('name')
         allHousehold= Household.objects.all().order_by('name')
         allHouseholdMemberships= HouseholdMembership.objects.all().order_by('name')
         
+        filfil = Address.objects.filter(client__primary_user__username=request.user)
 
         args = {'form': form, 
                 'allUsers': allUsers ,
@@ -111,6 +114,7 @@ class MyStuff(TemplateView):
                 'allTeachers': allTeachers ,
                 'allHousehold': allHousehold ,
                 'allHouseholdMemberships': allHouseholdMemberships ,
+                'filfil' : filfil,
                 
                 }  
         return render(request, self.template_name, args)

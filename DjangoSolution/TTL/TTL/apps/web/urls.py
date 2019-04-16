@@ -13,9 +13,7 @@ from . import views
 app_name = 'web'
 
 urlpatterns = [
-    re_path(r'^Behzad_test0_Path', views.index, name='index'), #/accounts/Behzad_test0_PathABCDEFGHI
-    re_path(r'^Behzad_test1_Path/$', views.index, name='index'), #/accounts/Behzad_test1_Path/
-    re_path(r'^Behzad_test2_Path$', views.index, name='index'), #/accounts/Behzad_test2_Path
+    
     
     
     
@@ -24,6 +22,6 @@ urlpatterns = [
     re_path(r'^home/$', views.home, name='Home'),
     re_path(r'^contact/$', views.contact, name='Accounts_Contact'),
     
-    re_path(r'^$', views.index, name='home'),
+
 ]
 

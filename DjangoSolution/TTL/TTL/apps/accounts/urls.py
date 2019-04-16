@@ -32,6 +32,6 @@ urlpatterns = [
     re_path(r'^profile/change-password/$', views.change_password, name='Accounts_ChangePassword'),
     re_path(r'^password-reset/$', auth_views.PasswordResetView.as_view(),name='Accounts_ResetPassword'),
 
-    #re_path('', include('django.contrib.auth.urls'))
+    re_path('', include('django.contrib.auth.urls'))
 ]
 
