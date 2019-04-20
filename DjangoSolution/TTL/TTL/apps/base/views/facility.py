@@ -86,40 +86,48 @@ class AddressDetailView(BaseModelMixin, UpdateView):
 
 #endregion
 
-class MyStuff(TemplateView):    
+class MyStuff(LoginRequiredMixin, TemplateView):    
     template_name = "base/mystuff.html"
     def get(self, request):
         form = ClientForm()
         allUsers = User.objects.filter(username=request.user.username)
-        allClientTypes = ClientType.objects.all().order_by('id')
+        
         
         allClients = Client.objects.filter(primary_user=request.user)
         
+        #allClientTypes = ClientType.objects.all().order_by('id')
+        allClientTypes = ClientType.objects.filter(client__in=allClients).distinct()
+
         allAddresses = Address.objects.filter(client__in=allClients)
-        allFacilities= Facility.objects.all().order_by('name')
-        allFacilitySpaces= FacilitySpace.objects.all().order_by('name')
+        #allAddresses = allClients[0].clientAddresses.all()
+
+        
+        #allFacilities= Facility.objects.all().order_by('name')
+        allFacilities= Facility.objects.filter(client__in=allClients)
+
+        #allFacilitySpaces= FacilitySpace.objects.all().order_by('name')
+        allFacilitySpaces= FacilitySpace.objects.filter(facility__in=allFacilities)
+
         allTeachers= Teacher.objects.all().order_by('name')
         allHousehold= Household.objects.all().order_by('name')
         allHouseholdMemberships= HouseholdMembership.objects.all().order_by('name')
         
-        filfil = Address.objects.filter(client__primary_user__username=request.user)
-
+        
         args = {'form': form, 
                 'allUsers': allUsers ,
                 'allClients': allClients ,
                 'allClientTypes': allClientTypes ,
-                'allAddresses': allAddresses ,
+                #'allAddresses': allAddresses ,
                 'allFacilities': allFacilities ,
                 'allFacilitySpaces': allFacilitySpaces ,
                 'allTeachers': allTeachers ,
                 'allHousehold': allHousehold ,
                 'allHouseholdMemberships': allHouseholdMemberships ,
-                'filfil' : filfil,
                 
                 }  
         return render(request, self.template_name, args)
 
-class AllStuff(TemplateView):    
+class AllStuff(LoginRequiredMixin, TemplateView):    
     template_name = "base/allstuff.html"
     def get(self, request):
         form = ClientForm()

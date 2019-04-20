@@ -65,7 +65,7 @@ class Address(BaseModel):
     #category = models.IntegerField(choices = TYPES_CHOICES, default=0)
     #type = models.ForeignKey(AddressType, on_delete=models.PROTECT)
 
-    client = models.ForeignKey(Client, on_delete=models.PROTECT,blank = True,null=True)
+    client = models.ForeignKey(Client, related_name='clientAddresses', on_delete=models.PROTECT,blank = True,null=True)
     street_line1 = models.CharField(max_length = 100, blank = True)
     street_line2 = models.CharField(max_length = 100, blank = True)
     city = models.CharField(max_length = 100, blank = True)
@@ -76,7 +76,9 @@ class Address(BaseModel):
     def get_absolute_url(self):
         return reverse('base:address-detail', kwargs={'pk': self.pk})
 
-    
+    class Meta:
+        verbose_name_plural = "Addresses"
+
 
 class Person(BaseModel):
     userId = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)

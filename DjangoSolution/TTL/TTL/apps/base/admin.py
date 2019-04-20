@@ -71,7 +71,7 @@ class ClientAdmin(BaseAdmin):
 admin.site.register(Household)
 #admin.site.register(Household,HouseholdAdmin)
 
-admin.site.register(Facility)
+#admin.site.register(Facility)
     
 
 class PersonAdmin(BaseAdmin):
@@ -96,27 +96,37 @@ admin.site.register(Person,PersonAdmin)
 #    #readonly_fields = ('created_by','created','modified_by','modified','active','id', )
 #    extra = 1
 
+
+
+
+class FacilityAdmin(BaseAdmin):
+    #list_display = ('name','created_by','created','modified_by','modified','active', 'id',)
+    idpos = BaseAdmin.list_display.index('id') #idpos = 6
+    list_display = BaseAdmin.list_display[:(idpos)] + BaseAdmin.list_display[(idpos+1):] + ('license_number','client',) 
+    #inlines = [TeacherInline]
+    
+
+    
 #class FacilityAdmin(BaseAdmin):
-#    tuple(list(BaseAdmin.list_display).remove('id'))
-#    list_display =  BaseAdmin.list_display + ('name',) 
-#    fieldsets = [(None, {'fields': ('name', 'address',)})] + BaseAdmin.fieldsets 
-#    inlines = [TeacherInline]
-
-#
-
-#admin.site.register(Facility,FacilityAdmin)
+admin.site.register(Facility,FacilityAdmin)
 
 
-#class FacilitySpaceAdmin(BaseAdmin):
-#    list_display =  ('name',) + BaseAdmin.list_display
-#    fieldsets = [(None, {'fields': ('name', 'facility', 'capacity', )})] + BaseAdmin.fieldsets 
+#admin.site.register(FacilitySpace)
 
-#class TeacherAdmin(BaseAdmin):
-#    list_display =  ('name',) + BaseAdmin.list_display
-#    fieldsets = [(None, {'fields': ('name','facility' )})] + BaseAdmin.fieldsets 
+class FacilitySpaceAdmin(BaseAdmin):
+    list_display = BaseAdmin.list_display + ( 'facility', 'capacity', )
+    #fieldsets = [(None, {'fields': ('name', 'facility', 'capacity', )})] + BaseAdmin.fieldsets 
 
-#admin.site.register(FacilitySpace, FacilitySpaceAdmin)
-#admin.site.register(Teacher,TeacherAdmin)
+admin.site.register(FacilitySpace, FacilitySpaceAdmin)
+
+
+
+#admin.site.register(Teacher)
+class TeacherAdmin(BaseAdmin):
+    list_display = BaseAdmin.list_display + ( 'facility', )
+    
+
+admin.site.register(Teacher,TeacherAdmin)
 
 
 #class HouseholdMembershipTypeAdmin(BaseAdmin):
@@ -147,8 +157,7 @@ admin.site.register(Person,PersonAdmin)
 
 
 
-admin.site.register(FacilitySpace)
-admin.site.register(Teacher)
+
 
 
 
