@@ -9,32 +9,26 @@
 
             <ul class="nav-stacked" id="accordion1">
                 {% for ct in allClientTypes %}
-                <li class="panel"> <h2><a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">{{ ct.name }} ({{ ct.id }}</a>
+                <li class="panel"> <h2><a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">{{ ct.name }} ({{ ct.id }})</a>
                 <br/>Clients:</h2>
                     <ul id="firstLink">
                         {% for c in allClients %}
-                        <li class="panel"><h3><a href="{% url 'base:client-detail' pk=c.pk %}">{{ c.name }} ({{ c.id }}) {{ c.facility }}</a>
-                            <br/>related facility: {{ c.facility }}</h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                <ul id="secondLink" >Client Addresses:
-                                    {% for add in c.clientAddresses.all %}
-                                        <li class="panel"><a href="{% url 'base:address-detail' pk=add.pk %}">
-                                            <h3>{{ add.name }} ({{ add.id }})</h3></a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                                </div>
-                                <div class="col-md-6">
-                                <ul id="secondLink" >Facility Spaces:
-                                    {% for cfs in c.facility.facilitySpaces.all %}
-                                        <li class="panel"><a href="{% url 'base:address-detail' pk=cf.pk %}">
-                                            <h3>{{ cfs.name }} ({{ cfs.id }})</h3></a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                                </div>
-                            </div>
+                        <li class="panel"><h3><a href="{% url 'base:client-detail' pk=c.pk %}">{{ c.name }}-{{ c.id }} (Manager: {{ c.primary_user }})</a>
+                            <br/>related facility Lic #: {{c.clientFacility.license_number}}</h3>
+                            <ul id="secondLink" ><h3>Client's Addresses: ({{ c.clientAddresses.all.count }})</h3>
+                                {% for add in c.clientAddresses.all %}
+                                    <li class="panel"><a href="{% url 'base:address-detail' pk=add.pk %}">
+                                        <h4>{{ add.name }} ({{ add.id }})</h4></a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <ul id="secondLink" ><h3>Facility's Spaces: {{c.clientFacility.facilitySpaces.count }}</h3>
+                                {% for cfs in c.clientFacility.facilitySpaces.all %}
+                                    <li class="panel"><a href="">
+                                        <h4>{{ cfs.name }} ({{ cfs.id }})</h4></a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </li>
                         {% endfor %}
                     </ul>
