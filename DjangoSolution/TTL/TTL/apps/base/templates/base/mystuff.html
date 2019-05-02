@@ -29,6 +29,13 @@
                                     </li>
                                 {% endfor %}
                             </ul>
+                            <ul id="secondLink" ><h3>Facility's Teachers: {{c.clientFacility.facilityteachers.count }}</h3>
+                                {% for cft in c.clientFacility.facilityteachers.all %}
+                                    <li class="panel"><a href="">
+                                        <h4>{{ cft.name }} ({{ cft.id }})</h4></a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </li>
                         {% endfor %}
                     </ul>
