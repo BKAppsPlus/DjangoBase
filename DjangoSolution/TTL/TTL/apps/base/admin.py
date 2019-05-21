@@ -6,6 +6,27 @@ from .models import *
 
 #admin.site.register(class1)
 #admin.site.register(class2)
+
+
+class FacilityInline(admin.TabularInline):
+    model = Facility
+    
+class HouseholdInline(admin.TabularInline):
+    model = Household 
+
+class AddressInline(admin.StackedInline):
+    model = Address 
+    extra = 0    
+
+#class ClientInline(admin.TabularInline):
+#    model = Client
+
+#class TeacherInline(admin.TabularInline):
+#    model = Teacher
+#    #readonly_fields = ('created_by','created','modified_by','modified','active','id', )
+#    extra = 1
+
+
 class BaseAdmin(admin.ModelAdmin):
     #readonly_fields = ('created_by','modified_by',)
     #basic_fields = ('active','name','created_by','modified_by',) #'created','modified',
@@ -23,20 +44,12 @@ class AddressAdmin(BaseAdmin):
     #fieldsets = [(None, {'fields': ('client', 'street_line1', 'street_line2', 'city', 'state', 'zipcode', 'country', )})] + BaseAdmin.fieldsets
     
 
-class AddressInline(admin.StackedInline):
-    model = Address 
-    extra = 0
+
     
 
 class ClientTypeAdmin(BaseAdmin):
     pass
 
-class FacilityInline(admin.TabularInline):
-    model = Facility
-    
-class HouseholdInline(admin.TabularInline):
-    model = Household 
-    
 
 class ClientAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display+ ('type', 'primary_user', )
@@ -61,15 +74,16 @@ class ClientAdmin(BaseAdmin):
 
 
 
-#class ClientInline(admin.TabularInline):
-#    model = Client
 
-#class HouseholdAdmin(BaseAdmin):
-#    list_display = ('name', )
+class HouseholdAdmin(BaseAdmin):
+    idpos = BaseAdmin.list_display.index('id') #idpos = 6
+    list_display = BaseAdmin.list_display[:(idpos)] + BaseAdmin.list_display[(idpos+1):] + ('get_members', 'client',) 
+
+     
 
 
-admin.site.register(Household)
-#admin.site.register(Household,HouseholdAdmin)
+#admin.site.register(Household)
+admin.site.register(Household,HouseholdAdmin)
 
 #admin.site.register(Facility)
     
@@ -90,12 +104,6 @@ admin.site.register(Person,PersonAdmin)
 #admin.site.register(Person, PersonAdmin)
 #admin.site.register(AddressType,AddressTypeAdmin)
 #admin.site.register(Address, AddressAdmin)
-
-#class TeacherInline(admin.TabularInline):
-#    model = Teacher
-#    #readonly_fields = ('created_by','created','modified_by','modified','active','id', )
-#    extra = 1
-
 
 
 
@@ -173,4 +181,3 @@ admin.site.register(HouseholdMembership)
 
 
 
-        

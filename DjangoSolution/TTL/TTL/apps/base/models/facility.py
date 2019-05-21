@@ -18,7 +18,7 @@ class Facility(BaseModel):
         return self.name
 
     class Meta:
-        verbose_name_plural = "Facilities"
+        verbose_name_plural = "4. Facilities"
 
 
 
@@ -28,11 +28,14 @@ class FacilitySpace(BaseModel):
     
     def __str__(self):
         return self.name  
-
+    class Meta:
+        verbose_name_plural = "5. Facility Spaces"
 
 class Teacher(BaseModel):
     facility = models.ForeignKey(Facility,related_name='facilityteachers', on_delete=models.SET_NULL,blank=True, null=True)
 
     def __str__(self):
         return self.name    
+    class Meta:
+        verbose_name_plural = "6. Facility Teacher"
 

@@ -42,6 +42,9 @@ class ClientType(BaseModel):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "1 ClientType"
+
 
 
 class Client(BaseModel):
@@ -50,6 +53,9 @@ class Client(BaseModel):
 
     def get_absolute_url(self):
         return reverse('base:client-list') 
+    class Meta:
+        verbose_name_plural = "2. Clients"
+
 
 
 
@@ -77,7 +83,7 @@ class Address(BaseModel):
         return reverse('base:address-detail', kwargs={'pk': self.pk})
 
     class Meta:
-        verbose_name_plural = "Addresses"
+        verbose_name_plural = "3. Addresses"
 
 
 class Person(BaseModel):
