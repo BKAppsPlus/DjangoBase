@@ -31,6 +31,8 @@ urlpatterns = [
 
     re_path(r'^base/', include('TTL.apps.base.urls')),
 
+    re_path(r'^web/', include('TTL.apps.web.urls')),
+
     re_path(r'', include('TTL.apps.web.urls')),
     
 ]

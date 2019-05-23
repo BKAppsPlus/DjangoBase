@@ -45,8 +45,6 @@ class ClientType(BaseModel):
     class Meta:
         verbose_name_plural = "1 ClientType"
 
-
-
 class Client(BaseModel):
     type = models.ForeignKey(ClientType, on_delete=models.PROTECT,default=0)
     primary_user = models.ForeignKey(User, on_delete=models.PROTECT, default='0')
@@ -55,9 +53,7 @@ class Client(BaseModel):
         return reverse('base:client-list') 
     class Meta:
         verbose_name_plural = "2. Clients"
-
-
-
+        unique_together = ('type', 'primary_user',)
 
 class Address(BaseModel):
     #NA = 0

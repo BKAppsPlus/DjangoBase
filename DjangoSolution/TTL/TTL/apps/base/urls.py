@@ -22,8 +22,9 @@ urlpatterns = [
     
     url(r'^client/$', TTL.apps.base.views.ClientListView.as_view(), name='client-list'),
     url(r'^client/add/$', TTL.apps.base.views.ClientCreateView.as_view(), name='client-add'),
-    url(r'^client-(?P<pk>\d+)$', TTL.apps.base.views.ClientDetailView.as_view(), name='client-detail'),
-    url(r'^client/(?P<pk>\d+)$', TTL.apps.base.views.ClientUpdateView.as_view(), name='client-update'),
+    url(r'^client/my$', TTL.apps.base.views.CurrClientDetailView.as_view(), name='curr-client-detail'),
+    url(r'^client/(?P<pk>\d+)$', TTL.apps.base.views.ClientDetailView.as_view(), name='client-detail'),
+    url(r'^client/edit/(?P<pk>\d+)$', TTL.apps.base.views.ClientUpdateView.as_view(), name='client-update'),
     
     url(r'^address/$', TTL.apps.base.views.AddressListView.as_view(), name='address-list'),
     url(r'^address/add/$', TTL.apps.base.views.AddressCreateView.as_view(), name='address-add'),

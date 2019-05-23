@@ -54,7 +54,7 @@ class ClientTypeAdmin(BaseAdmin):
 class ClientAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display+ ('type', 'primary_user', )
     #fieldsets =BaseAdmin.fieldsets + [(None, {'fields': ('primary_user', )})] 
-    readonly_fields = ['type']
+    #readonly_fields = ['type']
     
     inlines = [FacilityInline,HouseholdInline,AddressInline] #[]
     
@@ -71,6 +71,11 @@ class ClientAdmin(BaseAdmin):
             return [x for x in unfiltered if isinstance(x,(FacilityInline,AddressInline))]
         else:
             return [x for x in unfiltered if isinstance(x,AddressInline)]
+    
+    #def get_readonly_fields(self, request, obj=None):
+    #    if obj: # editing an existing object
+    #        return self.readonly_fields + ('type', )
+    #    return self.readonly_fields
 
 
 
@@ -113,6 +118,10 @@ class FacilityAdmin(BaseAdmin):
     list_display = BaseAdmin.list_display[:(idpos)] + BaseAdmin.list_display[(idpos+1):] + ('license_number','client',) 
     #inlines = [TeacherInline]
     
+    def get_readonly_fields(self, request, obj=None):
+        if obj: # editing an existing object
+            return self.readonly_fields + ('client', )
+        return self.readonly_fields
 
     
 #class FacilityAdmin(BaseAdmin):

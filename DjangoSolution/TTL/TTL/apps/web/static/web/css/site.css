@@ -1,0 +1,7 @@
+body {
+    font: 1rem/1.5 var(--font-family-sans-serif);
+}
+
+a {
+    color: var(--blue);
+}

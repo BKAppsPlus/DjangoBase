@@ -39,7 +39,7 @@ class ClientTypeListView(BaseModelMixin,ListView):
 
 class ClientTypeDetailView(BaseModelMixin,DetailView):
     model = ClientType
-
+    
 class ClientTypeCreateView( BaseModelMixin, CreateView):
     model = ClientType
     form_class = ClientTypeForm
@@ -59,14 +59,22 @@ class ClientListView(BaseModelMixin, ListView):
 class ClientCreateView(BaseModelMixin, CreateView):
     model = Client
     form_class = ClientForm
-    
+
 class ClientDetailView(BaseModelMixin, DetailView):
     model = Client
     form_class = ClientForm
-    
+
+
+class CurrClientDetailView(BaseModelMixin, ListView):
+    model = Client
+    def get_queryset(self):
+        return Client.objects.filter(primary_user=self.request.user)
+    form_class = ClientForm
+
 class ClientUpdateView(BaseModelMixin, UpdateView):
     model = Client
-    form_class = ClientForm
+
+
 #endregion
 
 #Address Views
@@ -117,7 +125,7 @@ class MyStuff(LoginRequiredMixin, TemplateView):
                 'allUsers': allUsers ,
                 'allClients': allClients ,
                 'allClientTypes': allClientTypes ,
-                #'allAddresses': allAddresses ,
+                'allAddresses': allAddresses ,
                 'allFacilities': allFacilities ,
                 'allFacilitySpaces': allFacilitySpaces ,
                 'allTeachers': allTeachers ,
