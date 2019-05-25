@@ -65,9 +65,9 @@ class ClientAdmin(BaseAdmin):
         unfiltered = super(ClientAdmin, self).get_inline_instances(request, obj)
         #filter out the Inlines you don't want
         print(obj.name)
-        if (obj.type.name == 'Family'):
+        if (obj.type.name == 'FAMILY'):
             return [x for x in unfiltered if isinstance(x,(HouseholdInline,AddressInline))]
-        if ( obj.type.name == 'Service Provider'):
+        if ( obj.type.name == 'SERVICE PROVIDER'):
             return [x for x in unfiltered if isinstance(x,(FacilityInline,AddressInline))]
         else:
             return [x for x in unfiltered if isinstance(x,AddressInline)]

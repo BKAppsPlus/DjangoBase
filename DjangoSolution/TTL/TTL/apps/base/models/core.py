@@ -38,12 +38,14 @@ class BaseModel(models.Model, object,):
 class ClientType(BaseModel):
 
     def get_absolute_url(self):
-        return reverse('base:clienttype_list')
+        return reverse('base:clienttype-list')
 
     def __str__(self):
         return self.name
+
     class Meta:
         verbose_name_plural = "1 ClientType"
+        app_label = 'base'
 
 class Client(BaseModel):
     type = models.ForeignKey(ClientType, on_delete=models.PROTECT,default=0)
@@ -84,5 +86,5 @@ class Address(BaseModel):
 
 class Person(BaseModel):
     userId = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
-    
+    type = models.ForeignKey(ClientType, on_delete=models.PROTECT, blank=True, null=True)
 

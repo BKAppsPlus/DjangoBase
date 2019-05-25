@@ -8,7 +8,7 @@ from .core import *
 
 class Facility(BaseModel):
     def limit_client_choices():
-        return {'type__name': 'Service Provider'}
+        return {'type__name': 'SERVICE PROVIDER'}
 
     client = models.OneToOneField(Client,related_name='clientFacility',primary_key=True,on_delete=models.PROTECT, 
                                   limit_choices_to=limit_client_choices)

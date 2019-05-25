@@ -9,6 +9,9 @@ from django.contrib.auth import update_session_auth_hash
 
 # Create your views here.
 
+
+
+
 def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
@@ -56,6 +59,9 @@ def about(request):
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, world. You're at the user index.")
+    return HttpResponse("Hello, world. You're at the web index.")
 
+# Create your views here.
+def home1(request):
+    return HttpResponse("Hello, world. You're at the web home.")
 

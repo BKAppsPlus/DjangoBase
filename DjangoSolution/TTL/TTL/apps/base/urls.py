@@ -15,14 +15,14 @@ urlpatterns = [
     url(r'^$', TTL.apps.base.views.HomeView.as_view(), name='home'),
     #url(r'^addresses/$', TTL.apps.base.views.AddressesView.as_view(), name='addresses'),
 
-    url(r'^clienttype/$', TTL.apps.base.views.ClientTypeListView.as_view(), name='clienttype_list'),
+    url(r'^clienttype/$', TTL.apps.base.views.ClientTypeListView.as_view(), name='clienttype-list'),
     url(r'^clienttype/add/$', TTL.apps.base.views.ClientTypeCreateView.as_view(), name='clienttype-add'),
     url(r'^clienttype-(?P<pk>\d+)$', TTL.apps.base.views.ClientTypeDetailView.as_view(), name='clienttype-detail'),
     url(r'^clienttype/(?P<pk>\d+)$', TTL.apps.base.views.ClientTypeUpdateView.as_view(), name='clienttype-update'),
     
     url(r'^client/$', TTL.apps.base.views.ClientListView.as_view(), name='client-list'),
     url(r'^client/add/$', TTL.apps.base.views.ClientCreateView.as_view(), name='client-add'),
-    url(r'^client/my$', TTL.apps.base.views.CurrClientDetailView.as_view(), name='curr-client-detail'),
+    #url(r'^client/my$', TTL.apps.base.views.CurrClientDetailView.as_view(), name='curr-client-detail'),
     url(r'^client/(?P<pk>\d+)$', TTL.apps.base.views.ClientDetailView.as_view(), name='client-detail'),
     url(r'^client/edit/(?P<pk>\d+)$', TTL.apps.base.views.ClientUpdateView.as_view(), name='client-update'),
     

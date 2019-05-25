@@ -34,6 +34,7 @@ def profile_view(request, pk=None):
         print('qwdqwdqwdqwdqwdwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww')
         print(user)
     else:
+        print('rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
         user = request.user
     args ={
         'user': user,

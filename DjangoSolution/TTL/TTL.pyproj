@@ -77,7 +77,14 @@
     <Compile Include="TTL\apps\web\models.py" />
     <Compile Include="TTL\apps\web\tests.py" />
     <Compile Include="TTL\apps\web\urls.py" />
-    <Compile Include="TTL\apps\web\views.py" />
+    <Compile Include="TTL\apps\web\views\c.py" />
+    <Compile Include="TTL\apps\web\views\sp.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TTL\apps\web\views\web.py" />
+    <Compile Include="TTL\apps\web\views\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TTL\apps\web\__init__.py" />
     <Compile Include="TTL\__init__.py" />
     <Compile Include="TTL\settings.py" />
@@ -141,6 +148,7 @@
     <Folder Include="TTL\apps\" />
     <Folder Include="TTL\apps\web\" />
     <Folder Include="TTL\apps\web\migrations\" />
+    <Folder Include="TTL\apps\web\views\" />
     <Folder Include="TTL\apps\web\static\" />
     <Folder Include="TTL\apps\web\static\web\css\" />
     <Folder Include="TTL\apps\web\static\web\" />
