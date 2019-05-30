@@ -16,7 +16,7 @@ from django.views.generic.list import ListView
 from TTL.apps.base.forms import AddressForm, ClientTypeForm,ClientForm
 #from TTL.apps.base.forms import BookForm, BooknewForm
 
-from base.models import *
+from TTL.apps.base.models import *
 
 class BaseModelMixin(LoginRequiredMixin, object,):
     def form_valid(self, form, ):

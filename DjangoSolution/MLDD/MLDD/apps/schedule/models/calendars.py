@@ -13,8 +13,7 @@ from django.utils.six.moves.builtins import str
 from django.utils.translation import ugettext_lazy as _
 
 from MLDD.settings import USE_FULLCALENDAR
-from 
-.utils import EventListManager
+from MLDD.utils import EventListManager
 
 
 class CalendarManager(models.Manager):

@@ -66,6 +66,7 @@
     <Compile Include="TTL\apps\base\urls.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TTL\apps\base\views\family.py" />
     <Compile Include="TTL\apps\base\views\facility.py" />
     <Compile Include="TTL\apps\base\views\__init__.py">
       <SubType>Code</SubType>
