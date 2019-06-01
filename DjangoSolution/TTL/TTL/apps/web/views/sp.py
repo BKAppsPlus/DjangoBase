@@ -5,7 +5,7 @@ from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from TTL.apps.base.models.core import *
+from base.models.core import *
 
 from django.views.generic import TemplateView
 from django.views.generic.edit import (FormView,CreateView,UpdateView,DeleteView)

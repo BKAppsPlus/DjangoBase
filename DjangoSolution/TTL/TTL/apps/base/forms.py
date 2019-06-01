@@ -1,6 +1,6 @@
 from django import forms
 
-from TTL.apps.base.models import *
+from base.models import *
 
 from django.forms import ModelForm
 
