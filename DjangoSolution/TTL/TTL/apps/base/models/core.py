@@ -45,10 +45,10 @@ class ClientType(BaseModel):
 
     class Meta:
         verbose_name_plural = "1 ClientType"
-        app_label = 'base'
+
 
 class Client(BaseModel):
-    type = models.ForeignKey(ClientType, on_delete=models.PROTECT,default=0)
+    type = models.ForeignKey(ClientType, on_delete=models.PROTECT,default=0, related_name='typeofclient')
     primary_user = models.ForeignKey(User, on_delete=models.PROTECT, default='0')
 
     def get_absolute_url(self):

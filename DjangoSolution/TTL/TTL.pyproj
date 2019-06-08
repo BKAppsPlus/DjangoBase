@@ -16,7 +16,7 @@
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <LaunchProvider>Django launcher</LaunchProvider>
-    <DjangoSettingsModule>TTL.settings</DjangoSettingsModule>
+    <DjangoSettingsModule>project_TTL.settings</DjangoSettingsModule>
     <WebBrowserUrl>http://localhost</WebBrowserUrl>
     <OutputPath>.</OutputPath>
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
@@ -30,132 +30,41 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app_accounts\admin.py" />
+    <Compile Include="app_accounts\apps.py" />
+    <Compile Include="app_accounts\forms.py" />
+    <Compile Include="app_accounts\migrations\__init__.py" />
+    <Compile Include="app_accounts\models.py" />
+    <Compile Include="app_accounts\templates\__init__.py" />
+    <Compile Include="app_accounts\templates\__init__.py" />
+    <Compile Include="app_accounts\tests.py" />
+    <Compile Include="app_accounts\urls.py" />
+    <Compile Include="app_accounts\views.py" />
+    <Compile Include="app_accounts\__init__.py" />
     <Compile Include="manage.py" />
-    <Compile Include="TTL\apps\accounts\admin.py" />
-    <Compile Include="TTL\apps\accounts\apps.py" />
-    <Compile Include="TTL\apps\accounts\migrations\__init__.py" />
-    <Compile Include="TTL\apps\accounts\models.py" />
-    <Compile Include="TTL\apps\accounts\forms.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\accounts\tests.py" />
-    <Compile Include="TTL\apps\accounts\urls.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\accounts\views.py" />
-    <Compile Include="TTL\apps\accounts\__init__.py" />
-    <Compile Include="TTL\apps\base\admin.py" />
-    <Compile Include="TTL\apps\base\apps.py" />
-    <Compile Include="TTL\apps\base\forms.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\base\migrations\__init__.py" />
-    <Compile Include="TTL\apps\base\models\core.py" />
-    <Compile Include="TTL\apps\base\models\family.py" />
-    <Compile Include="TTL\apps\base\models\facility.py" />
-    <Compile Include="TTL\apps\base\models\reservation.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\base\models\signals.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\base\models\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\base\tests.py" />
-    <Compile Include="TTL\apps\base\urls.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\base\views\family.py" />
-    <Compile Include="TTL\apps\base\views\facility.py" />
-    <Compile Include="TTL\apps\base\views\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\base\__init__.py" />
-    <Compile Include="TTL\apps\web\admin.py" />
-    <Compile Include="TTL\apps\web\apps.py" />
-    <Compile Include="TTL\apps\web\migrations\__init__.py" />
-    <Compile Include="TTL\apps\web\models.py" />
-    <Compile Include="TTL\apps\web\tests.py" />
-    <Compile Include="TTL\apps\web\urls.py" />
-    <Compile Include="TTL\apps\web\views\c.py" />
-    <Compile Include="TTL\apps\web\views\sp.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\web\views\web.py" />
-    <Compile Include="TTL\apps\web\views\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TTL\apps\web\__init__.py" />
-    <Compile Include="TTL\__init__.py" />
-    <Compile Include="TTL\settings.py" />
-    <Compile Include="TTL\urls.py" />
-    <Compile Include="TTL\wsgi.py" />
+    <Compile Include="project_TTL\__init__.py" />
+    <Compile Include="project_TTL\settings.py" />
+    <Compile Include="project_TTL\urls.py" />
+    <Compile Include="project_TTL\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app_accounts\templates\app_accounts\loggedoff.html" />
+    <Content Include="app_accounts\templates\app_accounts\login.html" />
+    <Content Include="app_accounts\templates\app_accounts\password_change.html" />
+    <Content Include="app_accounts\templates\app_accounts\profile_edit.html" />
+    <Content Include="app_accounts\templates\app_accounts\profile_view.html" />
+    <Content Include="app_accounts\templates\app_accounts\register.html" />
     <Content Include="requirements.txt" />
-    <Content Include="TTL\apps\base\templates\base\clienttype_detail.html" />
-    <Content Include="TTL\apps\base\templates\base\client_detail.html" />
-    <Content Include="TTL\apps\base\templates\base\allstuff.html" />
-    <Content Include="TTL\apps\web\static\web\css\site.css" />
-    <Content Include="TTL\apps\web\templates\web\about.html" />
-    <Content Include="TTL\apps\web\templates\web\contact.html" />
-    <Content Include="TTL\apps\web\templates\web\index.html" />
-    <Content Include="TTL\apps\web\templates\web\index_.html" />
-    <Content Include="TTL\apps\web\templates\web\layout3.html" />
-    <Content Include="TTL\apps\web\templates\web\layout2.html" />
-    <Content Include="TTL\apps\web\templates\web\layout1.html" />
-    <Content Include="TTL\apps\web\templates\web\layout0.html" />
-    <Content Include="TTL\apps\web\templates\web\loggedoff.html" />
-    <Content Include="TTL\apps\web\templates\web\layout4.html" />
-    <Content Include="TTL\apps\accounts\templates\accounts\loggedoff.html" />
-    <Content Include="TTL\apps\accounts\templates\accounts\login.html" />
-    <Content Include="TTL\apps\accounts\templates\accounts\password_change.html" />
-    <Content Include="TTL\apps\accounts\templates\accounts\profile_edit.html" />
-    <Content Include="TTL\apps\accounts\templates\accounts\profile_view.html" />
-    <Content Include="TTL\apps\accounts\templates\accounts\register.html" />
-    <Content Include="TTL\apps\base\templates\base\booknew_form.html" />
-    <Content Include="TTL\apps\base\templates\base\book_form.html" />
-    <Content Include="TTL\apps\base\templates\base\booknew_list.html" />
-    <Content Include="TTL\apps\base\templates\base\book_list.html" />
-    <Content Include="TTL\apps\base\templates\base\mystuff.html" />
-    <Content Include="TTL\apps\base\templates\base\__clienttype.html" />
-    <Content Include="TTL\apps\base\templates\base\__client.html" />
-    <Content Include="TTL\apps\base\templates\base\clienttype_form.html" />
-    <Content Include="TTL\apps\base\templates\base\client_form.html" />
-    <Content Include="TTL\apps\base\templates\base\address_form.html" />
-    <Content Include="TTL\apps\base\templates\base\clienttype_list.html" />
-    <Content Include="TTL\apps\base\templates\base\client_list.html" />
-    <Content Include="TTL\apps\base\templates\base\address_list.html" />
-    <Content Include="TTL\apps\base\templates\base\__address.html" />
-    <Content Include="TTL\apps\base\templates\base\profile.html" />
-    <Content Include="TTL\apps\base\templates\base\home.html" />
-    <Content Include="TTL\apps\base\templates\base\layout.html" />
-    <Content Include="TTL\data.json" />
-    <Content Include="TTL\apps\web\templates\web\loginpartial.html" />
+    <Content Include="project_TTL\data.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app_accounts\" />
+    <Folder Include="app_accounts\migrations\" />
+    <Folder Include="app_accounts\templates\" />
+    <Folder Include="app_accounts\templates\app_accounts\" />
+    <Folder Include="project_TTL\" />
     <Folder Include="TTL\" />
-    <Folder Include="TTL\apps\accounts\" />
-    <Folder Include="TTL\apps\accounts\migrations\" />
-    <Folder Include="TTL\apps\accounts\templates\" />
-    <Folder Include="TTL\apps\accounts\templates\accounts\" />
-    <Folder Include="TTL\apps\base\models\" />
-    <Folder Include="TTL\apps\base\templates\" />
-    <Folder Include="TTL\apps\base\templates\base\" />
-    <Folder Include="TTL\apps\base\views\" />
-    <Folder Include="TTL\apps\base\" />
-    <Folder Include="TTL\apps\base\migrations\" />
-    <Folder Include="TTL\apps\" />
-    <Folder Include="TTL\apps\web\" />
-    <Folder Include="TTL\apps\web\migrations\" />
-    <Folder Include="TTL\apps\web\views\" />
-    <Folder Include="TTL\apps\web\static\" />
-    <Folder Include="TTL\apps\web\static\web\css\" />
-    <Folder Include="TTL\apps\web\static\web\" />
-    <Folder Include="TTL\apps\web\templates\" />
-    <Folder Include="TTL\apps\web\templates\web\" />
-    <Folder Include="TTL\templates\" />
+    <Folder Include="project_TTL\templates\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="..\..\..\..\ENV\env64(P3.6_D2.1.4)\">
