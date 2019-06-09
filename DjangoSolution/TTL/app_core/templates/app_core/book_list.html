@@ -1,0 +1,10 @@
+<h3>Books</h3>
+<a href='{% url "base:create_book" %}'>Create</a>
+<hr />
+{% for book in object_list %}
+    {{ book.name }} - {{ book.author }}<br />
+    {{ book.created_by }} - {{ book.created_on }} - {{ book.modified_by }} - {{ book.modified_on }}
+    <a href = '{% url "base:update_book" book.id %}'>Update</a>
+    <hr />
+{% endfor %}    
+    

@@ -1,0 +1,21 @@
+{% extends "web/layout3.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Facility Home</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    <h2>{{ text }}</h2>
+    {% for address in addresses %}
+        <h1>{{ address.name }}</h1>
+        <p>{{ address.street_line1 }}, {{ address.street_line2 }}, {{ address.city }}, {{ address.state }}, {{ address.zipcode}} {{ address.country }}</p>
+        <p>Created By: {{ address.created_by.get_full_name }}, on {{address.created }}</p>
+    {% endfor %}
+    
+    <p>Use this area to provide additional information.</p>
+</div>
+{% endblock %}
