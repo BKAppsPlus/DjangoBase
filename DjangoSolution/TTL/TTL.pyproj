@@ -98,6 +98,7 @@
     <Content Include="app_core0\templates\app_core\__client.html" />
     <Content Include="app_core0\templates\app_core\__clienttype.html" />
     <Content Include="app_core\templates\app_core\index.html" />
+    <Content Include="Drawing1.vsdx" />
     <Content Include="requirements.txt" />
     <Content Include="project_TTL\data.json" />
   </ItemGroup>
