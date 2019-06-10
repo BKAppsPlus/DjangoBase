@@ -3,9 +3,9 @@ from django.forms import ModelForm
 
 from .models import *
 
-class ClientTypeForm(ModelForm):
+class PartyTypeForm(ModelForm):
     class Meta:
-        model = ClientType
+        model = PartyType
         fields = ['name',]
 
 

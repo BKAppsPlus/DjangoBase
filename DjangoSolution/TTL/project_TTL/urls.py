@@ -29,9 +29,9 @@ urlpatterns = [
     #re_path(r'^$', TTL.apps.accounts.views.home, name='TTL_Home'),
     re_path(r'^app_accounts/', include('app_accounts.urls')),
 
-    re_path(r'^app_core/', include('app_core.urls')),
+    re_path(r'^app_core0/', include('app_core0.urls')),
 
-    #re_path(r'^web/', include('TTL.apps.web.urls')),
+    #re_path(r'^web/', include('app_web.urls')),
 
     #re_path(r'', include('TTL.apps.web.urls')),
     

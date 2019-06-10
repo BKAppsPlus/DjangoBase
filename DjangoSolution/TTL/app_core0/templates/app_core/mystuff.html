@@ -5,16 +5,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h1>Facility Home</h1>
+            <h1>ProviderMaster Home</h1>
 
             <ul class="nav-stacked" id="accordion1">
-                {% for ct in allClientTypes %}
+                {% for ct in allPartyTypes %}
                 <li class="panel"> <h2><a data-toggle="collapse" data-parent="#accordion1" href="#firstLink">{{ ct.name }} ({{ ct.id }})</a>
                 <br/>Clients:</h2>
                     <ul id="firstLink">
                         {% for c in allClients %}
                         <li class="panel"><h3><a href="{% url 'base:client-detail' pk=c.pk %}">{{ c.name }}-{{ c.id }} (Manager: {{ c.primary_user }})</a>
-                            <br/>related facility Lic #: {{c.clientFacility.license_number}}</h3>
+                            <br/>related facility Lic #: {{c.clientProviderMaster.license_number}}</h3>
                             <ul id="secondLink" ><h3>Client's Addresses: ({{ c.clientAddresses.all.count }})</h3>
                                 {% for add in c.clientAddresses.all %}
                                     <li class="panel"><a href="{% url 'base:address-detail' pk=add.pk %}">
@@ -22,15 +22,15 @@
                                     </li>
                                 {% endfor %}
                             </ul>
-                            <ul id="secondLink" ><h3>Facility's Spaces: {{c.clientFacility.facilitySpaces.count }}</h3>
-                                {% for cfs in c.clientFacility.facilitySpaces.all %}
+                            <ul id="secondLink" ><h3>ProviderMaster's Spaces: {{c.clientProviderMaster.facilitySpaces.count }}</h3>
+                                {% for cfs in c.clientProviderMaster.facilitySpaces.all %}
                                     <li class="panel"><a href="">
                                         <h4>{{ cfs.name }} ({{ cfs.id }})</h4></a>
                                     </li>
                                 {% endfor %}
                             </ul>
-                            <ul id="secondLink" ><h3>Facility's Teachers: {{c.clientFacility.facilityteachers.count }}</h3>
-                                {% for cft in c.clientFacility.facilityteachers.all %}
+                            <ul id="secondLink" ><h3>ProviderMaster's ProviderOperators: {{c.clientProviderMaster.facilityteachers.count }}</h3>
+                                {% for cft in c.clientProviderMaster.facilityteachers.all %}
                                     <li class="panel"><a href="">
                                         <h4>{{ cft.name }} ({{ cft.id }})</h4></a>
                                     </li>
@@ -56,8 +56,8 @@
                 <h3>{{ u.username}} ({{ u.id}})</h3>
                 </a>
             {% endfor %}
-            <h2>All ClientTypes</h2>
-            {% for ct in allClientTypes %}
+            <h2>All PartyTypes</h2>
+            {% for ct in allPartyTypes %}
                 <a href="{% url 'base:clienttype-detail' pk=ct.pk %}">
                 <h3>{{ ct.name }} ({{ ct.id }})</h3>
                 </a>
@@ -80,14 +80,14 @@
                 <h3>{{ f.name }}</h3>
                 </a>
             {% endfor %}
-            <h2>All Facility Spaces</h2>
-            {% for fc in allFacilitySpaces %}
+            <h2>All ProviderMaster Spaces</h2>
+            {% for fc in allProviderUnits %}
                 <a href="">
                 <h3>{{ fc.name }} </h3>
                 </a>
             {% endfor %}
-            <h2>All Teachers</h2>
-            {% for t in allTeachers %}
+            <h2>All ProviderOperators</h2>
+            {% for t in allProviderOperators %}
                 <a href="">
                 <h3>{{ t.name }}</h3>
                 </a>

@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h1>Facility Home</h1>
+            <h1>ProviderMaster Home</h1>
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -18,14 +18,14 @@
                 <h3>{{ f.name }}</h3>
                 </a>
             {% endfor %}
-            <h2>All Facility Spaces</h2>
-            {% for fc in allFacilitySpaces %}
+            <h2>All ProviderMaster Spaces</h2>
+            {% for fc in allProviderUnits %}
                 <a href="">
                 <h3>{{ fc.name }} </h3>
                 </a>
             {% endfor %}
-            <h2>All Teachers</h2>
-            {% for t in allTeachers %}
+            <h2>All ProviderOperators</h2>
+            {% for t in allProviderOperators %}
                 <a href="">
                 <h3>{{ t.name }}</h3>
                 </a>
@@ -50,8 +50,8 @@
                 <h3>{{ u.username}} ({{ u.id}})</h3>
                 </a>
             {% endfor %}
-            <h2>All ClientTypes</h2>
-            {% for ct in allClientTypes %}
+            <h2>All PartyTypes</h2>
+            {% for ct in allPartyTypes %}
                 <a href="{% url 'base:clienttype-detail' pk=ct.pk %}">
                 <h3>{{ ct.name }} ({{ ct.id }})</h3>
                 </a>

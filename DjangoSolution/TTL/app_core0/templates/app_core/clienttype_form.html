@@ -1,16 +1,13 @@
-{% extends "base/layout.html" %}
+{% extends "web/layout3.html" %}
 
 {% block content %}
 
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h1>Facility Home</h1>
+            <h1>ProviderMaster Home</h1>
             <form method="post" class="form-horizontal">
                 {% csrf_token %}
-                
-                
-                
                 {{ form.as_p }}
                 {{ form.errors }}
                 <button type="submit">Submit</button>

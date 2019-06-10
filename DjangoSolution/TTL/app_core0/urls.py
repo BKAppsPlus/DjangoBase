@@ -9,7 +9,7 @@ from django.urls import path, re_path
 from .views import *
 #app_name = 'base'
 
-#re_path(r'^app_core/', include('app_core.urls')),
+#re_path(r'^app_core0/', include('app_core0.urls')),
 
 
 
@@ -17,10 +17,10 @@ urlpatterns = [
     url(r'^$', HomeView.as_view(), name='home'),
     #url(r'^addresses/$', AddressesView.as_view(), name='addresses'),
 
-    re_path(r'^clienttype/$', ClientTypeListView.as_view(), name='clienttype-list'),
-    re_path(r'^clienttype/add/$', ClientTypeCreateView.as_view(), name='clienttype-add'),
-    re_path(r'^clienttype-(?P<pk>\d+)$', ClientTypeDetailView.as_view(), name='clienttype-detail'),
-    re_path(r'^clienttype/(?P<pk>\d+)$', ClientTypeUpdateView.as_view(), name='clienttype-update'),
+    re_path(r'^clienttype/$', PartyTypeListView.as_view(), name='clienttype-list'),
+    re_path(r'^clienttype/add/$', PartyTypeCreateView.as_view(), name='clienttype-add'),
+    re_path(r'^clienttype-(?P<pk>\d+)$', PartyTypeDetailView.as_view(), name='clienttype-detail'),
+    re_path(r'^clienttype/(?P<pk>\d+)$', PartyTypeUpdateView.as_view(), name='clienttype-update'),
     
     re_path(r'^client/$', ClientListView.as_view(), name='client-list'),
     re_path(r'^client/add/$', ClientCreateView.as_view(), name='client-add'),

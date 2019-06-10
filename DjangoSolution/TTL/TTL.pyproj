@@ -41,17 +41,24 @@
     <Compile Include="app_accounts\urls.py" />
     <Compile Include="app_accounts\views.py" />
     <Compile Include="app_accounts\__init__.py" />
-    <Compile Include="app_core\admin.py" />
-    <Compile Include="app_core\apps.py" />
-    <Compile Include="app_core\forms.py">
+    <Compile Include="app_core0\admin.py" />
+    <Compile Include="app_core0\apps.py" />
+    <Compile Include="app_core0\forms.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app_core0\migrations\__init__.py" />
+    <Compile Include="app_core0\models.py" />
+    <Compile Include="app_core0\tests.py" />
+    <Compile Include="app_core0\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app_core0\views.py" />
+    <Compile Include="app_core0\__init__.py" />
+    <Compile Include="app_core\admin.py" />
+    <Compile Include="app_core\apps.py" />
     <Compile Include="app_core\migrations\__init__.py" />
     <Compile Include="app_core\models.py" />
     <Compile Include="app_core\tests.py" />
-    <Compile Include="app_core\urls.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="app_core\views.py" />
     <Compile Include="app_core\__init__.py" />
     <Compile Include="manage.py" />
@@ -67,29 +74,30 @@
     <Content Include="app_accounts\templates\app_accounts\profile_edit.html" />
     <Content Include="app_accounts\templates\app_accounts\profile_view.html" />
     <Content Include="app_accounts\templates\app_accounts\register.html" />
-    <Content Include="app_core\templates\app_core\address.html" />
-    <Content Include="app_core\templates\app_core\address_form.html" />
-    <Content Include="app_core\templates\app_core\address_list.html" />
-    <Content Include="app_core\templates\app_core\allstuff.html" />
-    <Content Include="app_core\templates\app_core\booknew_form.html" />
-    <Content Include="app_core\templates\app_core\booknew_list.html" />
-    <Content Include="app_core\templates\app_core\book_form.html" />
-    <Content Include="app_core\templates\app_core\book_list.html" />
-    <Content Include="app_core\templates\app_core\cleint_form.html" />
-    <Content Include="app_core\templates\app_core\client.html" />
-    <Content Include="app_core\templates\app_core\clienttype_detail.html" />
-    <Content Include="app_core\templates\app_core\clienttype_form.html" />
-    <Content Include="app_core\templates\app_core\clienttype_list.html" />
-    <Content Include="app_core\templates\app_core\client_detail.html" />
-    <Content Include="app_core\templates\app_core\client_form.html" />
-    <Content Include="app_core\templates\app_core\client_list.html" />
-    <Content Include="app_core\templates\app_core\home.html" />
-    <Content Include="app_core\templates\app_core\layout.html" />
-    <Content Include="app_core\templates\app_core\mystuff.html" />
-    <Content Include="app_core\templates\app_core\profile.html" />
-    <Content Include="app_core\templates\app_core\__address.html" />
-    <Content Include="app_core\templates\app_core\__client.html" />
-    <Content Include="app_core\templates\app_core\__clienttype.html" />
+    <Content Include="app_core0\templates\app_core\address.html" />
+    <Content Include="app_core0\templates\app_core\address_form.html" />
+    <Content Include="app_core0\templates\app_core\address_list.html" />
+    <Content Include="app_core0\templates\app_core\allstuff.html" />
+    <Content Include="app_core0\templates\app_core\booknew_form.html" />
+    <Content Include="app_core0\templates\app_core\booknew_list.html" />
+    <Content Include="app_core0\templates\app_core\book_form.html" />
+    <Content Include="app_core0\templates\app_core\book_list.html" />
+    <Content Include="app_core0\templates\app_core\cleint_form.html" />
+    <Content Include="app_core0\templates\app_core\client.html" />
+    <Content Include="app_core0\templates\app_core\clienttype_detail.html" />
+    <Content Include="app_core0\templates\app_core\clienttype_form.html" />
+    <Content Include="app_core0\templates\app_core\clienttype_list.html" />
+    <Content Include="app_core0\templates\app_core\client_detail.html" />
+    <Content Include="app_core0\templates\app_core\client_form.html" />
+    <Content Include="app_core0\templates\app_core\client_list.html" />
+    <Content Include="app_core0\templates\app_core\home.html" />
+    <Content Include="app_core0\templates\app_core\layout.html" />
+    <Content Include="app_core0\templates\app_core\mystuff.html" />
+    <Content Include="app_core0\templates\app_core\profile.html" />
+    <Content Include="app_core0\templates\app_core\__address.html" />
+    <Content Include="app_core0\templates\app_core\__client.html" />
+    <Content Include="app_core0\templates\app_core\__clienttype.html" />
+    <Content Include="app_core\templates\app_core\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="project_TTL\data.json" />
   </ItemGroup>
@@ -98,6 +106,10 @@
     <Folder Include="app_accounts\migrations\" />
     <Folder Include="app_accounts\templates\" />
     <Folder Include="app_accounts\templates\app_accounts\" />
+    <Folder Include="app_core0\" />
+    <Folder Include="app_core0\migrations\" />
+    <Folder Include="app_core0\templates\" />
+    <Folder Include="app_core0\templates\app_core\" />
     <Folder Include="app_core\" />
     <Folder Include="app_core\migrations\" />
     <Folder Include="app_core\templates\" />
